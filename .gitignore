@@ -41,5 +41,9 @@
 # Composer PHAR
 /composer.phar
 
+
+/sympfony/cache/*
+
+
 # Backup entities generated with doctrine:generate:entities command
 **/Entity/*~

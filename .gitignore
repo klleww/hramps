@@ -42,7 +42,7 @@
 /composer.phar
 
 
-/sympfony/cache/*
+/symfony/cache/*
 
 
 # Backup entities generated with doctrine:generate:entities command

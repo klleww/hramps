@@ -1,8 +1,8 @@
 <?php 
-$version = '3.3.2';
-$prodName = 'OrangeHRM';
+$version = '1.0';
+$prodName = 'MSU-HRAMPS';
 $copyrightYear = date('Y');
 
 ?>
 <?php echo $prodName . ' ' . $version;?><br/>
-&copy; 2005 - <?php echo $copyrightYear;?> <a href="http://www.orangehrm.com" target="_blank">OrangeHRM, Inc</a>. All rights reserved.
+&copy; 2016 - <?php echo $copyrightYear;?> <a href="http://www.msugensan.edu.ph" target="_blank"></a>. All rights reserved.

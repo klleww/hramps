@@ -109,6 +109,7 @@ class EmployeeMembershipForm extends BaseForm {
         
         $widgets = array();
         $widgets['membership'] = new sfWidgetFormSelect(array('choices' => $memberships));
+        $widgets['membershipno'] = new sfWidgetFormInputText();
         $widgets['subscriptionPaidBy'] = new sfWidgetFormSelect(array('choices' => $subscriptionPaidBy));
         $widgets['subscriptionAmount'] = new sfWidgetFormInputText();
         $widgets['currency'] = new sfWidgetFormSelect(array('choices' => $currency));
@@ -127,6 +128,7 @@ class EmployeeMembershipForm extends BaseForm {
         
         $validators = array(
             'membership' => new sfValidatorChoice(array('required' => true, 'choices' => array_keys($memberships))),
+            'membershipno' => new sfValidatorString(array('required' => false)),
             'subscriptionPaidBy' => new sfValidatorString(array('required' => false)),
             'subscriptionAmount' => new sfValidatorNumber(array('required' => false)),
             'currency' => new sfValidatorString(array('required' => false)),
@@ -193,6 +195,7 @@ class EmployeeMembershipForm extends BaseForm {
         }
 
         if ($allowed) {
+            $membershipDetail->membershipno = $this ->getValue('membershipno');
             $membershipDetail->subscriptionPaidBy = $this->getValue('subscriptionPaidBy');
             $membershipDetail->subscriptionFee = $this->getValue('subscriptionAmount');
             $membershipDetail->subscriptionCurrency = $this->getValue('currency');

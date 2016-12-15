@@ -63,25 +63,29 @@ $allowEdit = true;
                                 <?php echo $form['membership']->render(array("class" => "drpDown", "maxlength" => 50)); ?>
                             </li>
                             <li>
+                                <?php echo $form['membershipno']->renderLabel(__('Membership Number') . ' <em>*</em>'); ?>
+                                <?php echo $form['membershipno']->render(array("class" => "formInputM", "maxlength" => 50)); ?>
+                            </li>
+                          <!--   <li>
                                 <?php echo $form['subscriptionPaidBy']->renderLabel(__('Subscription Paid By')); ?>
                                 <?php echo $form['subscriptionPaidBy']->render(array("class" => "drpDown", "maxlength" => 50)); ?>
-                            </li>
-                            <li>
+                            </li> -->
+                            <!-- <li>
                                 <?php echo $form['subscriptionAmount']->renderLabel(__('Subscription Amount')); ?>
                                 <?php echo $form['subscriptionAmount']->render(array("class" => "formInputM", "maxlength" => 13)); ?>
-                            </li>
-                            <li>
+                            </li> -->
+                       <!--   <li>
                                 <?php echo $form['currency']->renderLabel(__('Currency')); ?>
                                 <?php echo $form['currency']->render(array("class" => "drpDown", "maxlength" => 50)); ?>
-                            </li>
+                            </li> -->
                             <li>
-                                <?php echo $form['subscriptionCommenceDate']->renderLabel(__('Subscription Commence Date')); ?>
+                                <?php echo $form['subscriptionCommenceDate']->renderLabel(__('Date Issued')); ?>
                                 <?php echo $form['subscriptionCommenceDate']->render(array("class" => "formDateInput")); ?>
                             </li>
-                            <li>
+                           <!--  <li>
                                 <?php echo $form['subscriptionRenewalDate']->renderLabel(__('Subscription Renewal Date')); ?>
                                 <?php echo $form['subscriptionRenewalDate']->render(array("class" => "formDateInput")); ?>
-                            </li>
+                            </li> -->
                             <li class="required">
                                 <em>*</em> <?php echo __(CommonMessages::REQUIRED_FIELD); ?>
                             </li>
@@ -134,11 +138,12 @@ $allowEdit = true;
                                 <input type='hidden' class='checkboxMem' id='checkAllMem' />
                                 <?php } ?>
                                 <th class="memshipCode"><?php echo __("Membership"); ?></th>
-                                <th><?php echo __("Subscription Paid By"); ?></th>
+                                <th><?php echo __("Membership Number"); ?></th>
+                               <!--  <th><?php echo __("Subscription Paid By"); ?></th>
                                 <th class="memshipAmount"><?php echo __("Subscription Amount"); ?></th>
-                                <th><?php echo __("Currency"); ?></th>
-                                <th><?php echo __("Subscription Commence Date"); ?></th>
-                                <th><?php echo __("Subscription Renewal Date"); ?></th>
+                                <th><?php echo __("Currency"); ?></th> -->
+                                <th><?php echo __("Date Issued"); ?></th>
+                                <!-- <th><?php echo __("Subscription Renewal Date"); ?></th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -171,11 +176,12 @@ $allowEdit = true;
                                         ?>
                                     </td>
                                     <?php
-                                    echo "<td class='memship' valigh='top'>" . $memship->subscriptionPaidBy . '</td>';
-                                    echo "<td  class='memshipAmount1' valigh='top'>" . $memship->subscriptionFee . '</td>';
-                                    echo "<td class='memship'valigh='top'>" . $memship->subscriptionCurrency . '</td>';
+                                    echo "<td class='memship' valigh='top'>" . $memship->membershipno . '</td>';
+                                    // echo "<td class='memship' valigh='top'>" . $memship->subscriptionPaidBy . '</td>';
+                                    // echo "<td  class='memshipAmount1' valigh='top'>" . $memship->subscriptionFee . '</td>';
+                                    // echo "<td class='memship'valigh='top'>" . $memship->subscriptionCurrency . '</td>';
                                     echo "<td class='memship'valigh='top'>" . set_datepicker_date_format($memship->subscriptionCommenceDate) . '</td>';
-                                    echo "<td class='memship'valigh='top'>" . set_datepicker_date_format($memship->subscriptionRenewalDate) . '</td>';
+                                    // echo "<td class='memship'valigh='top'>" . set_datepicker_date_format($memship->subscriptionRenewalDate) . '</td>';
                                     echo '</tr>';
                                     $row++;
                                 endforeach;

@@ -53,6 +53,10 @@ abstract class BaseEmployeeMembership extends sfDoctrineRecord
              'type' => 'integer',
              'primary' => true,
              ));
+        $this->hasColumn('membship_no as membershipno', 'integer', 50, array(
+             'type' => 'integer',
+             'length' => 50,
+             ));
         $this->hasColumn('ememb_subscript_amount as subscriptionFee', 'decimal', 15, array(
              'type' => 'decimal',
              'scale' => false,

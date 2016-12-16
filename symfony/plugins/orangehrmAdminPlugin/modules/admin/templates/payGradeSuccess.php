@@ -46,12 +46,19 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
 
 </div>
 
+<!-- 
+/**
+*modified by: ariane
+*modified date: 12-13-16
+*/
+ -->
+
 <?php if ($payGradeId > 0) {
  ?>
 <div id="addEditCurrency" class="box">
     
     <div class="head">
-        <h1 id="currencyHeading"><?php echo __("Assigned Currencies"); ?></h1>
+        <h1 id="currencyHeading"><?php echo __("Salary Grade Levels"); ?></h1>
     </div>
     
     <div class="inner">
@@ -65,11 +72,18 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
                 <ol id="addPaneCurrency" style="display: none">
                     
                     <li>
-                        <?php echo $currencyForm['currencyName']->renderLabel(__('Currency') . ' <em>*</em>'); ?>
+                        <?php echo $currencyForm['currencyName']->renderLabel(__('Level') . ' <em>*</em>'); ?>
                         <?php echo $currencyForm['currencyName']->render(array("class" => "formInput", "maxlength" => 52)); ?>
                         <span class="errorHolder curName"></span>
                     </li>
                     
+                    <li>
+                        <?php echo $currencyForm['salaryAmount']->renderLabel(__('Salary Amount') . ' <em>*</em>'); ?>
+                        <?php echo $currencyForm['salaryAmount']->render(array("class" => "formInput", "maxlength" => 52)); ?>
+                    </li>
+
+                     
+                   <!--  
                     <li>
                         <?php echo $currencyForm['minSalary']->renderLabel(__('Minimum Salary')); ?>
                         <?php echo $currencyForm['minSalary']->render(array("class" => "formInput", "maxlength" => 52)); ?>
@@ -78,7 +92,7 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
                     <li>
                         <?php echo $currencyForm['maxSalary']->renderLabel(__('Maximum Salary')); ?>
                         <?php echo $currencyForm['maxSalary']->render(array("class" => "formInput", "maxlength" => 52)); ?>
-                    </li>
+                    </li> -->
                     
                     <li class="required">
                         <em>*</em> <?php echo __(CommonMessages::REQUIRED_FIELD); ?>
@@ -105,7 +119,7 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
 <div id="currency" class="box miniList">
     
     <div class="head">
-        <h1 id="currencyListHeading"><?php echo __("Assigned Currencies"); ?></h1>
+        <h1 id="currencyListHeading"><?php echo __("Salary Grade Levels"); ?></h1>
     </div>
     
     <div class="inner"> 
@@ -132,9 +146,11 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
                         <?php if ($payGradePermissions->canUpdate()) {?>
                         <th class="check" style="width:2%"><input type="checkbox" id="currencyCheckAll" class="checkboxCurr"/></th>
                         <?php }?>
-                        <th style="width:40%"><?php echo __("Currency") ?></th>
-                        <th style="width:34%"><?php echo __("Minimum Salary") ?></th>
-                        <th style="width:34%"><?php echo __("Maximum Salary") ?></th>
+                        <th style="width:40%"><?php echo __("Level") ?></th>
+                        <th style="width:34%"><?php echo __("Salary Amount") ?></th>
+                       <!--  <th style="width:40%"><?php echo __("Level") ?></th>
+                           <th style="width:34%"><?php echo __("Minimum Salary") ?></th>
+                        <th style="width:34%"><?php echo __("Maximum Salary") ?></th> --> 
                     </tr>
                 </thead>
                 <tbody>
@@ -152,11 +168,15 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
                             <?php }else{?>
                                 <td><?php echo __($currency->getCurrencyType()->getCurrencyName()); ?></td>
                             <?php }?>
+                            <td class=""><?php echo number_format($currency->salaryAmount, 2, '.', ','); ?></td>
+                            <!--<td class=""><?php echo __($currency->levelName); ?></td>
                             <td class=""><?php echo number_format($currency->minSalary, 2, '.', ','); ?></td>
-                            <td class=""><?php echo number_format($currency->maxSalary, 2, '.', ','); ?></td>
+                            <td class=""><?php echo number_format($currency->maxSalary, 2, '.', ','); ?></td> -->
                         </tr>
+
                 <?php
                         $row++;
+
                     }
                 } else {
                 ?>
@@ -202,9 +222,9 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
     var lang_validCurrency = '<?php echo __(ValidationMessages::INVALID); ?>';
     var lang_currencyAlreadyExist = '<?php echo __(ValidationMessages::ALREADY_EXISTS); ?>';
     var lang_validSalaryRange  = '<?php echo __("Should be higher than Minimum Salary"); ?>';
-    var lang_addCurrency  = "<?php echo __("Add Currency"); ?>";
-    var lang_editCurrency  = "<?php echo __("Edit Currency"); ?>";
-    var lang_assignedCurrency  = "<?php echo __("Assigned Currencies"); ?>";
+    var lang_addCurrency  = "<?php echo __("Add Salary Level"); ?>";
+    var lang_editCurrency  = "<?php echo __("Edit Salary Level"); ?>";
+    var lang_assignedCurrency  = "<?php echo __("Assigned Salary Level"); ?>";
     var lang_uniquePayGradeName  = '<?php echo __(ValidationMessages::ALREADY_EXISTS); ?>';
     var viewPayGradesUrl = "<?php echo url_for("admin/viewPayGrades"); ?>";
     var getCurrencyDetailsUrl = "<?php echo url_for("admin/getCurrencyDetailsJson"); ?>";

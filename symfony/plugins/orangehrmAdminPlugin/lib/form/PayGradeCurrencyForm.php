@@ -1,23 +1,8 @@
 <?php
-
 /**
- * OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
- * all the essential functionalities required for any enterprise.
- * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
- *
- * OrangeHRM is free software; you can redistribute it and/or modify it under the terms of
- * the GNU General Public License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along with this program;
- * if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA  02110-1301, USA
- *
- */
+*modified by: ariane
+*modified date: 12-13-16
+*/
 class PayGradeCurrencyForm extends BaseForm {
 	
 	private $payGradeService;
@@ -38,6 +23,8 @@ class PayGradeCurrencyForm extends BaseForm {
 		$this->setWidgets(array(
 		    'currencyId' => new sfWidgetFormInputHidden(),
 		    'payGradeId' => new sfWidgetFormInputHidden(),
+		    // 'levelName' => new sfWidgetFormInputText(),
+		    'salaryAmount' => new sfWidgetFormInputText(),
 		    'currencyName' => new sfWidgetFormInputText(),
 		    'minSalary' => new sfWidgetFormInputText(),
 		    'maxSalary' => new sfWidgetFormInputText(),
@@ -46,6 +33,8 @@ class PayGradeCurrencyForm extends BaseForm {
 		$this->setValidators(array(
 		    'currencyId' => new sfValidatorString(array('required' => false)),
 		    'payGradeId' => new sfValidatorNumber(array('required' => false)),
+		    // 'levelName' => new sfValidatorString(array('required' => true)),
+		    'salaryAmount' => new sfValidatorNumber(array('required' => false)),
 		    'currencyName' => new sfValidatorString(array('required' => true)),
 		    'minSalary' => new sfValidatorNumber(array('required' => false)),
 		    'maxSalary' => new sfValidatorNumber(array('required' => false)),
@@ -65,7 +54,8 @@ class PayGradeCurrencyForm extends BaseForm {
 		} else {
 			$currency = new PayGradeCurrency();
 		}
-		
+		// $currency->levelName = $this->getValue('levelName');
+		$currency->salaryAmount = $this->getValue('salaryAmount');
 		$currency->setPayGradeId($this->payGradeId);
 		$currency->setCurrencyId($temp[0]);
 		$currency->setMinSalary(sprintf("%01.2f", $this->getValue('minSalary')));

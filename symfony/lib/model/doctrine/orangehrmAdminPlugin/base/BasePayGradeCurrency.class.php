@@ -52,6 +52,10 @@ abstract class BasePayGradeCurrency extends sfDoctrineRecord
              'type' => 'float',
              'length' => 2147483647,
              ));
+        $this->hasColumn('salary_amount as salaryAmount', 'float', 2147483647, array(
+             'type' => 'float',
+             'length' => 2147483647,
+             ));
     }
 
     public function setUp()

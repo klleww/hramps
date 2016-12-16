@@ -31,7 +31,7 @@ abstract class BaseCurrencyType extends sfDoctrineRecord
 {
     public function setTableDefinition()
     {
-        $this->setTableName('hs_hr_currency_type');
+        $this->setTableName('hs_hr_level_type');
         $this->hasColumn('code', 'integer', 4, array(
              'type' => 'integer',
              'default' => '0',

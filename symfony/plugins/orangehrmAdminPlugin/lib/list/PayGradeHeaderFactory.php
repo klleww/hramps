@@ -20,7 +20,7 @@ class PayGradeHeaderFactory extends ohrmListConfigurationFactory {
 		));
 
 		$header2->populateFromArray(array(
-		    'name' => 'Currency',
+		    'name' => 'Level',
 		    'width' => '49%',
 		    'filters' => array('I18nCellFilter' => array()
                               ),

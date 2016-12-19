@@ -23,7 +23,6 @@ class PayGradeCurrencyForm extends BaseForm {
 		$this->setWidgets(array(
 		    'currencyId' => new sfWidgetFormInputHidden(),
 		    'payGradeId' => new sfWidgetFormInputHidden(),
-		    // 'levelName' => new sfWidgetFormInputText(),
 		    'salaryAmount' => new sfWidgetFormInputText(),
 		    'currencyName' => new sfWidgetFormInputText(),
 		    'minSalary' => new sfWidgetFormInputText(),
@@ -33,7 +32,6 @@ class PayGradeCurrencyForm extends BaseForm {
 		$this->setValidators(array(
 		    'currencyId' => new sfValidatorString(array('required' => false)),
 		    'payGradeId' => new sfValidatorNumber(array('required' => false)),
-		    // 'levelName' => new sfValidatorString(array('required' => true)),
 		    'salaryAmount' => new sfValidatorNumber(array('required' => false)),
 		    'currencyName' => new sfValidatorString(array('required' => true)),
 		    'minSalary' => new sfValidatorNumber(array('required' => false)),
@@ -54,7 +52,6 @@ class PayGradeCurrencyForm extends BaseForm {
 		} else {
 			$currency = new PayGradeCurrency();
 		}
-		// $currency->levelName = $this->getValue('levelName');
 		$currency->salaryAmount = $this->getValue('salaryAmount');
 		$currency->setPayGradeId($this->payGradeId);
 		$currency->setCurrencyId($temp[0]);

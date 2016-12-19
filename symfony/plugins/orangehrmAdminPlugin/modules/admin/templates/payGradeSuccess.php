@@ -169,8 +169,7 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
                                 <td><?php echo __($currency->getCurrencyType()->getCurrencyName()); ?></td>
                             <?php }?>
                             <td class=""><?php echo number_format($currency->salaryAmount, 2, '.', ','); ?></td>
-                            <!--<td class=""><?php echo __($currency->levelName); ?></td>
-                            <td class=""><?php echo number_format($currency->minSalary, 2, '.', ','); ?></td>
+                           <!-- <td class=""><?php echo number_format($currency->minSalary, 2, '.', ','); ?></td>
                             <td class=""><?php echo number_format($currency->maxSalary, 2, '.', ','); ?></td> -->
                         </tr>
 

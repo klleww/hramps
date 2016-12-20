@@ -1,23 +1,5 @@
 <?php
 
-/*
-  // OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
-  // all the essential functionalities required for any enterprise.
-  // Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
-
-  // OrangeHRM is free software; you can redistribute it and/or modify it under the terms of
-  // the GNU General Public License as published by the Free Software Foundation; either
-  // version 2 of the License, or (at your option) any later version.
-
-  // OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-  // without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-  // See the GNU General Public License for more details.
-
-  // You should have received a copy of the GNU General Public License along with this program;
-  // if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-  // Boston, MA  02110-1301, USA
- */
-
 /**
  * Form class for employee salary detail
  */
@@ -92,7 +74,10 @@ class EmployeeSalaryForm extends BaseForm {
 
     /*
      * Tis fuction will return the widgets of the form
-     */
+     *
+     ** modified by: ariane
+     ** modified date: 12-20-2016
+     **/
 
     public function getSalaryWidgets() {
         $widgets = array();
@@ -104,6 +89,7 @@ class EmployeeSalaryForm extends BaseForm {
         $widgets['basic_salary'] = new sfWidgetFormInputText();
         $widgets['payperiod_code'] = new sfWidgetFormSelect(array('choices' => $this->payPeriods));
         $widgets['salary_component'] = new sfWidgetFormInputText();
+        $widgets['effectivityDate'] = new ohrmWidgetDatePicker(array(), array('id' => 'effectivity_date'));
         $widgets['comments'] = new sfWidgetFormTextArea();
         $widgets['set_direct_debit'] = new sfWidgetFormInputCheckbox(array(), array('value' => 'on'));
 
@@ -124,9 +110,14 @@ class EmployeeSalaryForm extends BaseForm {
 
     /*
      * Tis fuction will return the form validators
+     *
+     ** modified by: ariane
+     ** modified date: 12-20-2016
      */
 
     public function getSalaryValidators() {
+
+        $inputDatePattern = sfContext::getInstance()->getUser()->getDateFormat();
 
         $validators = array(
             'id' => new sfValidatorNumber(array('required' => false, 'min' => 0)),
@@ -134,6 +125,8 @@ class EmployeeSalaryForm extends BaseForm {
             'basic_salary' => new sfValidatorNumber(array('required' => true, 'trim' => true, 'min' => 0, 'max' => 999999999.99)),
             'payperiod_code' => new sfValidatorChoice(array('required' => false, 'choices' => array_keys($this->payPeriods))),
             'salary_component' => new sfValidatorString(array('required' => false, 'max_length' => 100)),
+            'effectivityDate' => new ohrmDateValidator(array('date_format'=>$inputDatePattern,'required'=>false), 
+                array ('invalid'=> 'Date format should be' . $inputDatePattern)),
             'comments' => new sfValidatorString(array('required' => false, 'max_length' => 255)),
             'set_direct_debit' => new sfValidatorString(array('required' => false)),
         );
@@ -201,6 +194,9 @@ class EmployeeSalaryForm extends BaseForm {
 
     /**
      * Get EmployeeSalary object
+     *
+     ** modified by: ariane
+     ** modified date: 12-20-2016
      */
     public function getSalary() {
 
@@ -222,6 +218,7 @@ class EmployeeSalaryForm extends BaseForm {
         $empSalary->setPayPeriodId($this->getValue('payperiod_code'));
         $empSalary->setSalaryName($this->getValue('salary_component'));
         $empSalary->setAmount($this->getValue('basic_salary'));
+        $empSalary->setEffectivityDate($this->getValue('effectivityDate'));
         $empSalary->setNotes($this->getValue('comments'));
         
         $setDirectDebit = $this->getValue('set_direct_debit');

@@ -13,6 +13,7 @@
  * @property string $payPeriodId
  * @property string $salaryName
  * @property string $notes
+ * @property string $effectivityDate
  * @property CurrencyType $currencyType
  * @property Employee $employee
  * @property Payperiod $payperiod
@@ -27,6 +28,7 @@
  * @method string         getPayPeriodId()  Returns the current record's "payPeriodId" value
  * @method string         getSalaryName()   Returns the current record's "salaryName" value
  * @method string         getNotes()        Returns the current record's "notes" value
+ * @method string         getEffectivityDate()        Returns the current record's "effectivityDate" value
  * @method CurrencyType   getCurrencyType() Returns the current record's "currencyType" value
  * @method Employee       getEmployee()     Returns the current record's "employee" value
  * @method Payperiod      getPayperiod()    Returns the current record's "payperiod" value
@@ -87,6 +89,9 @@ abstract class BaseEmployeeSalary extends sfDoctrineRecord
         $this->hasColumn('salary_component as salaryName', 'string', 100, array(
              'type' => 'string',
              'length' => 100,
+             ));
+        $this->hasColumn('effectivity_date as effectivityDate', 'date', null, array(
+             'type' => 'date',
              ));
         $this->hasColumn('comments as notes', 'string', 255, array(
              'type' => 'string',

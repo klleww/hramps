@@ -86,9 +86,10 @@ class EmployeeSalaryForm extends BaseForm {
         // Note: Widget names were kept from old non-symfony version
         $widgets['id'] = new sfWidgetFormInputHidden();
         $widgets['currency_id'] = new sfWidgetFormSelect(array('choices' => $this->currencies));
-        $widgets['basic_salary'] = new sfWidgetFormInputText();
-        $widgets['payperiod_code'] = new sfWidgetFormSelect(array('choices' => $this->payPeriods));
-        $widgets['salary_component'] = new sfWidgetFormInputText();
+        // $widgets['salamount'] = new sfWidgetFormInputText(array(), array('disabled' => 'disabled'));
+        $widgets['basic_salary'] = new sfWidgetFormInputText(array(),array('disabled' => 'disabled'));
+        // $widgets['payperiod_code'] = new sfWidgetFormSelect(array('choices' => $this->payPeriods));
+        // $widgets['salary_component'] = new sfWidgetFormInputText();
         $widgets['effectivityDate'] = new ohrmWidgetDatePicker(array(), array('id' => 'effectivity_date'));
         $widgets['comments'] = new sfWidgetFormTextArea();
         $widgets['set_direct_debit'] = new sfWidgetFormInputCheckbox(array(), array('value' => 'on'));
@@ -123,12 +124,13 @@ class EmployeeSalaryForm extends BaseForm {
             'id' => new sfValidatorNumber(array('required' => false, 'min' => 0)),
             'currency_id' => new sfValidatorChoice(array('required' => true, 'choices' => array_keys($this->currencies))),
             'basic_salary' => new sfValidatorNumber(array('required' => true, 'trim' => true, 'min' => 0, 'max' => 999999999.99)),
-            'payperiod_code' => new sfValidatorChoice(array('required' => false, 'choices' => array_keys($this->payPeriods))),
-            'salary_component' => new sfValidatorString(array('required' => false, 'max_length' => 100)),
+            // 'payperiod_code' => new sfValidatorChoice(array('required' => false, 'choices' => array_keys($this->payPeriods))),
+            // 'salary_component' => new sfValidatorString(array('required' => false, 'max_length' => 100)),
             'effectivityDate' => new ohrmDateValidator(array('date_format'=>$inputDatePattern,'required'=>false), 
                 array ('invalid'=> 'Date format should be' . $inputDatePattern)),
             'comments' => new sfValidatorString(array('required' => false, 'max_length' => 255)),
             'set_direct_debit' => new sfValidatorString(array('required' => false)),
+            // 'salamount' => new sfValidatorString(array('required' => false)),
         );
         
         if ($this->havePayGrades) {
@@ -172,10 +174,10 @@ class EmployeeSalaryForm extends BaseForm {
         }
 
         // cleanup cmbPayPeriod
-        $payPeriod = $values['payperiod_code'];
-        if ($payPeriod == '0' || $payPeriod = '') {
-            $values['payperiod_code'] = null;
-        }
+        // $payPeriod = $values['payperiod_code'];
+        // if ($payPeriod == '0' || $payPeriod = '') {
+        //     $values['payperiod_code'] = null;
+        // }
 
         // Convert salary to a string. Since database field is a string field.
         // Otherwise, it may be converted to a string using scientific notation when encrypting.
@@ -215,11 +217,12 @@ class EmployeeSalaryForm extends BaseForm {
         $empSalary->setEmpNumber($this->getValue('emp_number'));
         $empSalary->setPayGradeId($this->getValue('sal_grd_code'));
         $empSalary->setCurrencyCode($this->getValue('currency_id'));
-        $empSalary->setPayPeriodId($this->getValue('payperiod_code'));
-        $empSalary->setSalaryName($this->getValue('salary_component'));
+        // $empSalary->setPayPeriodId($this->getValue('payperiod_code'));
+        // $empSalary->setSalaryName($this->getValue('salary_component'));
         $empSalary->setAmount($this->getValue('basic_salary'));
         $empSalary->setEffectivityDate($this->getValue('effectivityDate'));
         $empSalary->setNotes($this->getValue('comments'));
+        // $empSalary->setSalAmount($this->getValue('amount'));
         
         $setDirectDebit = $this->getValue('set_direct_debit');
         if ($setDirectDebit) {
@@ -267,9 +270,14 @@ class EmployeeSalaryForm extends BaseForm {
     private function _getCurrencies() {
         $currencies = $this->getCurrencyService()->getCurrencyList();
         $choices = array('' => '-- ' . __('Select') . ' --');
+        $salaryProperties = array('salamount');
 
         foreach ($currencies as $currency) {
             $choices[$currency->getCurrencyId()] = $currency->getCurrencyName();
+            if (in_array($choices, $this->allowedVacancyList)
+                    || !$predefined) {
+                $choices[$currency->getCurrencyId().'__inline_option_'] = $vacancy['salamount'];
+             }
         }
         return $choices;
     }

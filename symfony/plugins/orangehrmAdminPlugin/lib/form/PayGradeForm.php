@@ -92,7 +92,8 @@ class PayGradeForm extends BaseForm {
 		$list = array();
 		$currencies = $this->getCurrencyService()->getCurrencyList();
 		foreach ($currencies as $currency) {
-			$list[] = array('id' => $currency->getCurrencyId(), 'name' => $currency->getCurrencyId()." - ".__($currency->getCurrencyName()));
+			$list[] = array('id' => $currency->getCurrencyId(), 'name' => $currency->getCurrencyId()." - ".__($currency->getCurrencyName()),
+							'amount' => $currency->getCurrencyId()." - ".__($currency->getSalaryAmount()));
 		}
 		return json_encode($list);
 	}
@@ -112,7 +113,8 @@ class PayGradeForm extends BaseForm {
 		$list = array();
 		$currencies = $this->getPayGradeService()->getCurrencyListByPayGradeId($payGradeId);
 		foreach ($currencies as $currency) {
-			$list[] = array('id' => $currency->getCurrencyId(), 'name' => $currency->getCurrencyId()." - ".__($currency->getCurrencyType()->getCurrencyName()));
+			$list[] = array('id' => $currency->getCurrencyId(), 'name' => $currency->getCurrencyId()." - ".__($currency->getCurrencyType()->getCurrencyName())
+							'amount' => $currency->getCurrencyId()." - ".__($currency->getSalaryAmount()));
 		}
 		return json_encode($list);
 	}

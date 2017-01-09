@@ -75,7 +75,7 @@ class sfWidgetFormSelect extends sfWidgetFormChoiceBase
    *
    * @return array  An array of option tags
    */
-  protected function getOptionsForSelect($value, $choices)
+ protected function getOptionsForSelect($value, $choices)
   {
     $mainAttributes = $this->attributes;
     $this->attributes = array();
@@ -93,7 +93,40 @@ class sfWidgetFormSelect extends sfWidgetFormChoiceBase
     {
       if (is_array($option))
       {
-        $options[] = $this->renderContentTag('optgroup', implode("\n", $this->getOptionsForSelect($value, $option)), array('label' => self::escapeOnce($key)));
+        if(strpos($key, '__inline_option_') <= 0){
+          $options[] = $this->renderContentTag('optgroup', implode("\n", $this->getOptionsForSelect($value, $option)), array('label' => self::escapeOnce($key)));
+        }
+        else
+        {
+          /**
+           * This will handle multiple value field for a single option
+           * The first value would be the default
+           * The succeeding values for be for other 
+           * Should remove the prefix __inline_option_ from key
+           */
+          $key = str_replace('__inline_option_','',$key);
+          $suffix = 1;
+          $defaultText = '';
+          foreach ($option as $keyValues) {
+
+            if($suffix == 1) {
+              $attributes = array('value' => self::escapeOnce($key));
+              if (isset($value_set[strval($key)]))
+              {
+                $attributes['selected'] = 'selected';
+              }
+              $defaultText = self::escapeOnce($keyValues);
+            }
+            else
+            {
+              $attributes['value'.$suffix] = self::escapeOnce($keyValues);
+            }
+
+            $suffix++;
+          }
+
+          $options[] = $this->renderContentTag('option', $defaultText, $attributes);
+        }
       }
       else
       {

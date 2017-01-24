@@ -30,7 +30,7 @@
 <div class="modal hide" id="unitDialog">
     <div class="modal-header">
         <a class="close" data-dismiss="modal">×</a>
-        <h3 id="title"><?php echo "OrangeHRM - " . __("Edit Unit"); ?></h3>
+        <h3 id="title"><?php echo "HRAMPS - " . __("Edit Unit"); ?></h3>
     </div>
     <div class="modal-body">
         <form  id="ohrmFormComponent_Form" action=""  method="post">
@@ -68,7 +68,7 @@
 <div class="modal hide" id="dltDialog">
     <div class="modal-header">
         <a class="close" data-dismiss="modal">×</a>
-        <h3><?php echo __("OrangeHRM - Confirmation Required"); ?></h3>
+        <h3><?php echo __("HRAMPS - Confirmation Required"); ?></h3>
     </div>
     <div class="modal-body">
         <form  id="unitDeleteFrm" action=""  method="post">
@@ -86,8 +86,8 @@
 <script type="text/javascript">
     var lang_edit = "<?php echo __("Edit"); ?>";
     var lang_done = "<?php echo __("Done"); ?>";
-    var lang_addUnit = "<?php echo "OrangeHRM - " . __("Add Unit"); ?>";
-    var lang_editUnit = "<?php echo "OrangeHRM - " . __("Edit Unit"); ?>";
+    var lang_addUnit = "<?php echo "HRAMPS - " . __("Add Unit"); ?>";
+    var lang_editUnit = "<?php echo "HRAMPS - " . __("Edit Unit"); ?>";
     var lang_delete_warning = "<?php echo __("Units under selected unit will also be deleted"); ?>";
     var lang_delete_confirmation = "<?php echo __("Delete?"); ?>";
     var lang_addNote = "<?php echo __("This unit will be added under"); ?>";

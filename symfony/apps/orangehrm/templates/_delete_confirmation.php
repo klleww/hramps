@@ -2,7 +2,7 @@
 <div class="modal hide" id="deleteConfModal">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo __('OrangeHRM - Confirmation Required'); ?></h3>
+    <h3><?php echo __('HRAMPS - Confirmation Required'); ?></h3>
   </div>
   <div class="modal-body">
     <p><?php echo __(CommonMessages::DELETE_CONFIRMATION); ?></p>

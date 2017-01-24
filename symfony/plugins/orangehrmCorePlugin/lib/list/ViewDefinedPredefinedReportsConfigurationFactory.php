@@ -37,9 +37,23 @@ class ViewDefinedPredefinedReportsConfigurationFactory extends ohrmListConfigura
             ),
         ));
 
-
         $header3 = new ListHeader();
         $header3->populateFromArray(array(
+            'name' => '',
+            'width' => '95',
+            'isSortable' => false,
+            'elementType' => 'link',
+            'textAlignmentStyle' => 'left',
+            'elementProperty' => array(
+                'label' => __('Download Excel'),
+                'placeholderGetters' => array('id' => 'getReportId'),
+                'urlPattern' => url_for('core/displayPredefinedReport') . '?reportId={id}&downloadExcel=1'
+            ),
+        ));
+
+
+        $header4 = new ListHeader();
+        $header4->populateFromArray(array(
             'name' => '',
             'width' => '95',
             'isSortable' => false,
@@ -52,8 +66,10 @@ class ViewDefinedPredefinedReportsConfigurationFactory extends ohrmListConfigura
             ),
         ));
 
+         
+
         if ($this->edit) {
-            $this->headers = array($header1, $header2, $header3);
+            $this->headers = array($header1, $header2, $header3,$header4);
         } else {
             $this->headers = array($header1, $header2);
         }

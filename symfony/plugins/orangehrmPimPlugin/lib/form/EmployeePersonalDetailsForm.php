@@ -1,22 +1,5 @@
 <?php
 
-/**
- * OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
- * all the essential functionalities required for any enterprise.
- * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
- *
- * OrangeHRM is free software; you can redistribute it and/or modify it under the terms of
- * the GNU General Public License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along with this program;
- * if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA  02110-1301, USA
- */
 
 class EmployeePersonalDetailsForm extends BaseForm {
 
@@ -142,6 +125,9 @@ class EmployeePersonalDetailsForm extends BaseForm {
             // 'txtOtherID' => new sfWidgetFormInputText(),
             'txtBiometricId' => new sfWidgetFormInputText(),
             'cmbMarital' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Single' => __('Single'), 'Married' => __('Married'), 'Other' => __('Other')))),
+            'cmbReligion' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Roman Catholic' => __('Roman Catholic'), 'Islam' => __('Islam'), 'Other' => __('Other')))),
+            'cmbBloodType' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'A+' => __('A+'), 'A-' => __('A-'), 'B+' => __('B+'), 'B-' => __('B-'),
+                                                                                     'O+' => __('O+'),'O-' => __('O-'),'AB+' => __('AB+'),'AB-' => __('AB-')))),
             'chkSmokeFlag' => new sfWidgetFormInputCheckbox(),
             'txtLicExpDate' => new ohrmWidgetDatePicker(array(), array('id' => 'personal_txtLicExpDate')),
             'txtMilitarySer' => new sfWidgetFormInputText(),
@@ -156,8 +142,10 @@ class EmployeePersonalDetailsForm extends BaseForm {
         //setting the default selected nation code
         $widgets['cmbNation']->setDefault($this->employee->nation_code);
 
-        //setting default marital status
+        //setting default marital status,religion and bloodtype
         $widgets['cmbMarital']->setDefault($this->employee->emp_marital_status);
+        $widgets['cmbReligion']->setDefault($this->employee->religion);
+        $widgets['cmbBloodType']->setDefault($this->employee->bloodType);
 
         if ($this->employee->smoker) {
             $widgets['chkSmokeFlag']->setAttribute('checked', 'checked');
@@ -169,6 +157,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
         $widgets['optGender']->setDefault($this->gender);
         // $widgets['txtOtherID']->setAttribute('value', $this->employee->otherId);
         $widgets['txtBiometricId']->setAttribute('value', $this->employee->biometricId);
+    
 
         return $widgets;
     }
@@ -195,6 +184,8 @@ class EmployeePersonalDetailsForm extends BaseForm {
             // 'txtLicExpDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('invalid' => "Date format should be $inputDatePattern")),
             'txtMilitarySer' => new sfValidatorString(array('required' => false)),
             'txtBiometricId' => new sfValidatorString(array('required' => false)),
+            'cmbReligion' => new sfValidatorString(array('required' => false)),
+            'cmbBloodType' => new sfValidatorString(array('required' => false)),
         );
 
         return $validators;
@@ -250,6 +241,8 @@ class EmployeePersonalDetailsForm extends BaseForm {
 
 
             $employee->emp_marital_status = $this->getValue('cmbMarital');
+            $employee->religion = $this->getValue('cmbReligion');
+            $employee->bloodType = $this->getValue('cmbBloodType');
             $smoker = $this->getValue('chkSmokeFlag');
             $employee->smoker = !empty($smoker) ? $smoker : 0;
 

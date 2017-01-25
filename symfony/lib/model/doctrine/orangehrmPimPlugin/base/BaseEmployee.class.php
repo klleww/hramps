@@ -497,6 +497,14 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'type' => 'string',
              'length' => 250,
              ));
+        $this->hasColumn('blood_type as bloodType', 'string', 20, array(
+             'type' => 'string',
+             'length' => 20,
+             ));
+        $this->hasColumn('religion', 'string', 20, array(
+             'type' => 'string',
+             'length' => 50,
+             ));
     }
 
     public function setUp()

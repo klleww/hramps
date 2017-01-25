@@ -295,6 +295,11 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'primary' => true,
              'length' => 4,
              ));
+        $this->hasColumn('biometric_id as biometricId', 'string', 11, array(
+             'type' => 'string',
+             'default' => '',
+             'length' => 11,
+             ));
         $this->hasColumn('emp_lastname as lastName', 'string', 100, array(
              'type' => 'string',
              'default' => '',

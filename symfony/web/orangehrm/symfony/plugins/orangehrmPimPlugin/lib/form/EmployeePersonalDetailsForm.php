@@ -1,22 +1,5 @@
 <?php
 
-/**
- * OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
- * all the essential functionalities required for any enterprise.
- * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
- *
- * OrangeHRM is free software; you can redistribute it and/or modify it under the terms of
- * the GNU General Public License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along with this program;
- * if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA  02110-1301, USA
- */
 
 class EmployeePersonalDetailsForm extends BaseForm {
 
@@ -139,10 +122,11 @@ class EmployeePersonalDetailsForm extends BaseForm {
             'txtEmpNickName' => new sfWidgetFormInputText(),
             'optGender' => new sfWidgetFormChoice(array('expanded' => true, 'choices' => array(1 => __("Male"), 2 => __("Female")))),
             'cmbNation' => new sfWidgetFormSelect(array('choices' => $this->getNationalityList())),
-            'txtOtherID' => new sfWidgetFormInputText(),
+            // 'txtOtherID' => new sfWidgetFormInputText(),
+            'txtBiometricId' => new sfWidgetFormInputText(),
             'cmbMarital' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Single' => __('Single'), 'Married' => __('Married'), 'Other' => __('Other')))),
             'chkSmokeFlag' => new sfWidgetFormInputCheckbox(),
-            'txtLicExpDate' => new ohrmWidgetDatePicker(array(), array('id' => 'personal_txtLicExpDate')),
+            // 'txtLicExpDate' => new ohrmWidgetDatePicker(array(), array('id' => 'personal_txtLicExpDate')),
             'txtMilitarySer' => new sfWidgetFormInputText(),
         );
 
@@ -163,10 +147,11 @@ class EmployeePersonalDetailsForm extends BaseForm {
         }
 
         $widgets['chkSmokeFlag']->setAttribute('value', 1);
-        $widgets['txtLicExpDate']->setAttribute('value', set_datepicker_date_format($this->employee->emp_dri_lice_exp_date));
+        // $widgets['txtLicExpDate']->setAttribute('value', set_datepicker_date_format($this->employee->emp_dri_lice_exp_date));
         $widgets['txtMilitarySer']->setAttribute('value', $this->employee->militaryService);
         $widgets['optGender']->setDefault($this->gender);
-        $widgets['txtOtherID']->setAttribute('value', $this->employee->otherId);
+        // $widgets['txtOtherID']->setAttribute('value', $this->employee->otherId);
+         $widgets['txtBiometricId']->setAttribute('value', $this->employee->biometricId);
 
         return $widgets;
     }
@@ -187,11 +172,12 @@ class EmployeePersonalDetailsForm extends BaseForm {
                 'choices' => array(Employee::GENDER_MALE, Employee::GENDER_FEMALE),
                 'multiple' => false)),
             'cmbNation' => new sfValidatorChoice(array('required' => false, 'choices' => array_keys($this->getNationalityList()))),
-            'txtOtherID' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'Last Name Length exceeded 30 characters')),
+            // 'txtOtherID' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'Last Name Length exceeded 30 characters')),
             'cmbMarital' => new sfValidatorString(array('required' => false)),
             'chkSmokeFlag' => new sfValidatorString(array('required' => false)),
-            'txtLicExpDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('invalid' => "Date format should be $inputDatePattern")),
-            'txtMilitarySer' => new sfValidatorString(array('required' => false))
+            // 'txtLicExpDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('invalid' => "Date format should be $inputDatePattern")),
+            'txtMilitarySer' => new sfValidatorString(array('required' => false)),
+            'txtBiometricId' => new sfValidatorString(array('required' => false)),
         );
 
         return $validators;
@@ -242,7 +228,8 @@ class EmployeePersonalDetailsForm extends BaseForm {
 
             $nation = $this->getValue('cmbNation');
             $employee->nation_code = ($nation != '0') ? $nation : null;
-            $employee->otherId = $this->getValue('txtOtherID');
+            // $employee->otherId = $this->getValue('txtOtherID');
+            $employee->biometricId = $this->getValue('txtBiometricId');
 
 
             $employee->emp_marital_status = $this->getValue('cmbMarital');

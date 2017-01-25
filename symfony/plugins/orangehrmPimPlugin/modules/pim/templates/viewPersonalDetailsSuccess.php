@@ -56,17 +56,10 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
                             <?php echo $form['txtEmployeeId']->render(array("maxlength" => 10, "class" => "editable")); ?>
                         </li>
                         <li>
-                            <label for="personal_txtOtherID"><?php echo __('Other Id'); ?></label>
-                            <?php echo $form['txtOtherID']->render(array("maxlength" => 30, "class" => "editable")); ?>
+                            <label for="personal_txtBiometricId"><?php echo __('Biometric Id'); ?></label>
+                            <?php echo $form['txtBiometricId']->render(array("maxlength" => 30, "class" => "editable")); ?>
                         </li>
-                        <li class="long">
-                            <label for="personal_txtLicenNo"><?php echo __("Driver's License Number"); ?></label>
-                            <?php echo $form['txtLicenNo']->render(array("maxlength" => 30, "class" => "editable")); ?>
-                        </li>
-                        <li>
-                            <label for="personal_txtLicExpDate"><?php echo __('License Expiry Date'); ?></label>
-                            <?php echo $form['txtLicExpDate']->render(array("class"=>"calendar editable")); ?>
-                        </li>
+                      
                         <?php if ($showSSN) : ?>
                         <li class="new">
                             <label for="personal_txtNICNo"><?php echo __('SSN Number'); ?></label>

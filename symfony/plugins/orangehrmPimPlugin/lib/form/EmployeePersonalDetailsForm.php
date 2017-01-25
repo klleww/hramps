@@ -139,7 +139,8 @@ class EmployeePersonalDetailsForm extends BaseForm {
             'txtEmpNickName' => new sfWidgetFormInputText(),
             'optGender' => new sfWidgetFormChoice(array('expanded' => true, 'choices' => array(1 => __("Male"), 2 => __("Female")))),
             'cmbNation' => new sfWidgetFormSelect(array('choices' => $this->getNationalityList())),
-            'txtOtherID' => new sfWidgetFormInputText(),
+            // 'txtOtherID' => new sfWidgetFormInputText(),
+            'txtBiometricId' => new sfWidgetFormInputText(),
             'cmbMarital' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Single' => __('Single'), 'Married' => __('Married'), 'Other' => __('Other')))),
             'chkSmokeFlag' => new sfWidgetFormInputCheckbox(),
             'txtLicExpDate' => new ohrmWidgetDatePicker(array(), array('id' => 'personal_txtLicExpDate')),
@@ -166,7 +167,8 @@ class EmployeePersonalDetailsForm extends BaseForm {
         $widgets['txtLicExpDate']->setAttribute('value', set_datepicker_date_format($this->employee->emp_dri_lice_exp_date));
         $widgets['txtMilitarySer']->setAttribute('value', $this->employee->militaryService);
         $widgets['optGender']->setDefault($this->gender);
-        $widgets['txtOtherID']->setAttribute('value', $this->employee->otherId);
+        // $widgets['txtOtherID']->setAttribute('value', $this->employee->otherId);
+        $widgets['txtBiometricId']->setAttribute('value', $this->employee->biometricId);
 
         return $widgets;
     }
@@ -187,11 +189,12 @@ class EmployeePersonalDetailsForm extends BaseForm {
                 'choices' => array(Employee::GENDER_MALE, Employee::GENDER_FEMALE),
                 'multiple' => false)),
             'cmbNation' => new sfValidatorChoice(array('required' => false, 'choices' => array_keys($this->getNationalityList()))),
-            'txtOtherID' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'Last Name Length exceeded 30 characters')),
+            // 'txtOtherID' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'Last Name Length exceeded 30 characters')),
             'cmbMarital' => new sfValidatorString(array('required' => false)),
             'chkSmokeFlag' => new sfValidatorString(array('required' => false)),
-            'txtLicExpDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('invalid' => "Date format should be $inputDatePattern")),
-            'txtMilitarySer' => new sfValidatorString(array('required' => false))
+            // 'txtLicExpDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('invalid' => "Date format should be $inputDatePattern")),
+            'txtMilitarySer' => new sfValidatorString(array('required' => false)),
+            'txtBiometricId' => new sfValidatorString(array('required' => false)),
         );
 
         return $validators;
@@ -242,7 +245,8 @@ class EmployeePersonalDetailsForm extends BaseForm {
 
             $nation = $this->getValue('cmbNation');
             $employee->nation_code = ($nation != '0') ? $nation : null;
-            $employee->otherId = $this->getValue('txtOtherID');
+            // $employee->otherId = $this->getValue('txtOtherID');
+            $employee->biometricId = $this->getValue('txtBiometricId');
 
 
             $employee->emp_marital_status = $this->getValue('cmbMarital');

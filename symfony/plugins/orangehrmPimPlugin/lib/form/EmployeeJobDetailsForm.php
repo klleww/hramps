@@ -1,23 +1,5 @@
 <?php
 
-/*
-  // OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
-  // all the essential functionalities required for any enterprise.
-  // Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
-
-  // OrangeHRM is free software; you can redistribute it and/or modify it under the terms of
-  // the GNU General Public License as published by the Free Software Foundation; either
-  // version 2 of the License, or (at your option) any later version.
-
-  // OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
-  // without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-  // See the GNU General Public License for more details.
-
-  // You should have received a copy of the GNU General Public License along with this program;
-  // if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-  // Boston, MA  02110-1301, USA
- */
-
 /**
  * Form class for employee contact detail
  */
@@ -79,6 +61,8 @@ class EmployeeJobDetailsForm extends BaseForm {
             // TODO: Use sfWidgetFormChoice() instead
             'job_title' => new sfWidgetFormSelect(array('choices' => $jobTitles)),
             'emp_status' => new sfWidgetFormSelect(array('choices' => $employeeStatuses)), // employement status
+            'classification' => new sfWidgetFormSelect(array('choices' => 
+                array('' => "-- " . __('Select') . " --", 'Faculty' => __('Faculty'), 'Faculty w/ Admin Function' => __('Faculty w/ Admin Function'), 'Staff' => __('Staff')))),
             'terminated_date' => new ohrmWidgetDatePicker(array(), array('id' => 'job_terminated_date')),
             'termination_reason' => new sfWidgetFormTextarea(),
             'eeo_category' => new sfWidgetFormSelect(array('choices' => $eeoCategories)),
@@ -94,6 +78,7 @@ class EmployeeJobDetailsForm extends BaseForm {
         // Default values
         $this->setDefault('emp_number', $empNumber);
         $this->setDefault('emp_status', $employee->emp_status);
+        $this->setDefault('classification', $employee->classification);
 
         if (!empty($jobTitleId)) {
             $this->setDefault('job_title', $jobTitleId);
@@ -136,6 +121,7 @@ class EmployeeJobDetailsForm extends BaseForm {
             'emp_number' => new sfValidatorString(array('required' => true)),
             'job_title' => new sfValidatorChoice(array('required' => false, 'choices' => array_keys($jobTitles))),
             'emp_status' => new sfValidatorString(array('required' => false)),
+            'classification' => new sfValidatorString(array('required' => false)),
             'terminated_date' => new ohrmDateValidator(
                     array('date_format' => $inputDatePattern, 'required' => false),
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
@@ -209,6 +195,7 @@ class EmployeeJobDetailsForm extends BaseForm {
             $employee->eeo_cat_code = $eeoCat;
         }
         $employee->work_station = $this->getValue('sub_unit');
+        $employee->classification = $this->getValue('classification');
         $employee->joined_date = $this->getValue('joined_date');
         
         if( $joinedDate != '' && $joinedDate != $this->getValue('joined_date')){

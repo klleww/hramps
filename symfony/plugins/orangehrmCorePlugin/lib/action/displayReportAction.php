@@ -261,6 +261,7 @@ abstract class displayReportAction extends basePimReportAction {
                             (empty($rd['empContEndDate'][0])) ? $empContEndDate = '' : $empContEndDate = $rd['empContEndDate'][0];
                             (empty($rd['empJobTitle'][0])) ? $empJobTitle = '' : $empJobTitle = $rd['empJobTitle'][0];
                             (empty($rd['empEmploymentStatus'][0])) ? $empEmploymentStatus = '' : $empEmploymentStatus = $rd['empEmploymentStatus'][0];
+                            (empty($rd['classification'][0])) ? $classification = '' : $classification = $rd['classification'][0];
                             (empty($rd['empJobCategory'][0])) ? $empJobCategory = '' : $empJobCategory = $rd['empJobCategory'][0];
                             (empty($rd['empJoinedDate'][0])) ? $empJoinedDate = '' : $empJoinedDate = $rd['empJoinedDate'][0];
                             (empty($rd['empSubUnit'][0])) ? $empSubUnit = '' : $empSubUnit = $rd['empSubUnit'][0];
@@ -345,21 +346,22 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('BJ'.$i, $empContEndDate)
                             ->setCellValue('BK'.$i, $empJobTitle)
                             ->setCellValue('BL'.$i, $empEmploymentStatus)
-                            ->setCellValue('BM'.$i, $empJobCategory)
-                            ->setCellValue('BN'.$i, $empJoinedDate)
-                            ->setCellValue('BO'.$i, $empSubUnit)
-                            ->setCellValue('BP'.$i, $empLocation)
-                            ->setCellValue('BQ'.$i, $empPassportNo)
-                            ->setCellValue('BR'.$i, $empPassportIssuedDate)
-                            ->setCellValue('BS'.$i, $empPassportExpiryDate)
-                            ->setCellValue('BT'.$i, $empPassportEligibleStatus)
-                            ->setCellValue('BU'.$i, $empPassportIssuedBy)
-                            ->setCellValue('BV'.$i, $empPassportEligibleReviewDate)
-                            ->setCellValue('BW'.$i, $empPassportComments)
-                            ->setCellValue('BX'.$i, $documentType);
+                            ->setCellValue('BM'.$i, $classification)
+                            ->setCellValue('BN'.$i, $empJobCategory)
+                            ->setCellValue('BO'.$i, $empJoinedDate)
+                            ->setCellValue('BP'.$i, $empSubUnit)
+                            ->setCellValue('BQ'.$i, $empLocation)
+                            ->setCellValue('BR'.$i, $empPassportNo)
+                            ->setCellValue('BS'.$i, $empPassportIssuedDate)
+                            ->setCellValue('BT'.$i, $empPassportExpiryDate)
+                            ->setCellValue('BU'.$i, $empPassportEligibleStatus)
+                            ->setCellValue('BV'.$i, $empPassportIssuedBy)
+                            ->setCellValue('BW'.$i, $empPassportEligibleReviewDate)
+                            ->setCellValue('BX'.$i, $empPassportComments)
+                            ->setCellValue('BY'.$i, $documentType);
                     }   
                 //  Auto Size Cells
-                for($col = 'A'; $col !== 'BY'; $col++) {
+                for($col = 'A'; $col !== 'BZ'; $col++) {
                     $objPHPExcel->getActiveSheet()
                         ->getColumnDimension($col)
                         ->setAutoSize(true);
@@ -431,18 +433,19 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('BJ2', 'Contract End Date')
                             ->setCellValue('BK2', 'Job Title')
                             ->setCellValue('BL2', 'Employment Status')
-                            ->setCellValue('BM2', 'Job Category')
-                            ->setCellValue('BN2', 'Joined Date')
-                            ->setCellValue('BO2', 'Sub Unit')
-                            ->setCellValue('BP2', 'Location')
-                            ->setCellValue('BQ2', 'Number')
-                            ->setCellValue('BR2', 'Issued Date')
-                            ->setCellValue('BS2', 'Expiry Date')
-                            ->setCellValue('BT2', 'Eligibility Status')
-                            ->setCellValue('BU2', 'Issued By')
-                            ->setCellValue('BV2', 'Eligibility Review Date')
-                            ->setCellValue('BW2', 'Comments')
-                            ->setCellValue('BX2', 'Document Type');
+                            ->setCellValue('BM2', 'Employment Classification')
+                            ->setCellValue('BN2', 'Job Category')
+                            ->setCellValue('BO2', 'Joined Date')
+                            ->setCellValue('BP2', 'Sub Unit')
+                            ->setCellValue('BQ2', 'Location')
+                            ->setCellValue('BR2', 'Number')
+                            ->setCellValue('BS2', 'Issued Date')
+                            ->setCellValue('BT2', 'Expiry Date')
+                            ->setCellValue('BU2', 'Eligibility Status')
+                            ->setCellValue('BV2', 'Issued By')
+                            ->setCellValue('BW2', 'Eligibility Review Date')
+                            ->setCellValue('BX2', 'Comments')
+                            ->setCellValue('BXY2', 'Document Type');
 
                 $objPHPExcel->getActiveSheet()->setTitle('Report');
 

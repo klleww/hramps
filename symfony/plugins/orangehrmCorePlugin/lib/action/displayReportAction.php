@@ -180,7 +180,6 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('U1', 'Memberships')
                             ->setCellValue('AA1', 'Work Experience')
                             ->setCellValue('AF1', 'Education')
-
                             ->setCellValue('AI1', 'Skills')
                             ->setCellValue('AL1', 'Languages')
                             ->setCellValue('AP1', 'License')
@@ -253,15 +252,15 @@ abstract class displayReportAction extends basePimReportAction {
                             (empty($rd['salComments'][0])) ? $salComments = '' : $salComments = $rd['salComments'][0];
                             (empty($rd['salPayFrequency'][0])) ? $salPayFrequency = '' : $salPayFrequency = $rd['salPayFrequency'][0];
                             (empty($rd['salCurrency'][0])) ? $salCurrency = '' : $salCurrency = $rd['salCurrency'][0];
-                            (empty($rd['ddAccountNumber'][0])) ? $ddAccountNumber = '' : $ddAccountNumber = $rd['ddAccountNumber'][0];
-                            (empty($rd['ddAccountType'][0])) ? $ddAccountType = '' : $ddAccountType = $rd['ddAccountType'][0];
-                            (empty($rd['ddRoutingNumber'][0])) ? $ddRoutingNumber = '' : $ddRoutingNumber = $rd['ddRoutingNumber'][0];
-                            (empty($rd['ddAmount'][0])) ? $ddAmount = '' : $ddAmount = $rd['ddAmount'][0];
+                            // (empty($rd['ddAccountNumber'][0])) ? $ddAccountNumber = '' : $ddAccountNumber = $rd['ddAccountNumber'][0];
+                            // (empty($rd['ddAccountType'][0])) ? $ddAccountType = '' : $ddAccountType = $rd['ddAccountType'][0];
+                            // (empty($rd['ddRoutingNumber'][0])) ? $ddRoutingNumber = '' : $ddRoutingNumber = $rd['ddRoutingNumber'][0];
+                            // (empty($rd['ddAmount'][0])) ? $ddAmount = '' : $ddAmount = $rd['ddAmount'][0];
                             (empty($rd['empContStartDate'][0])) ? $empContStartDate = '' : $empContStartDate = $rd['empContStartDate'][0];
                             (empty($rd['empContEndDate'][0])) ? $empContEndDate = '' : $empContEndDate = $rd['empContEndDate'][0];
                             (empty($rd['empJobTitle'][0])) ? $empJobTitle = '' : $empJobTitle = $rd['empJobTitle'][0];
                             (empty($rd['empEmploymentStatus'][0])) ? $empEmploymentStatus = '' : $empEmploymentStatus = $rd['empEmploymentStatus'][0];
-                            (empty($rd['classification'][0])) ? $classification = '' : $classification = $rd['classification'][0];
+                            // (empty($rd['classification'][0])) ? $classification = '' : $classification = $rd['classification'][0];
                             (empty($rd['empJobCategory'][0])) ? $empJobCategory = '' : $empJobCategory = $rd['empJobCategory'][0];
                             (empty($rd['empJoinedDate'][0])) ? $empJoinedDate = '' : $empJoinedDate = $rd['empJoinedDate'][0];
                             (empty($rd['empSubUnit'][0])) ? $empSubUnit = '' : $empSubUnit = $rd['empSubUnit'][0];
@@ -303,6 +302,7 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('X'.$i,$dependentRelationship)
                             ->setCellValue('Y'.$i,$dependentDateofBirth)
                             ->setCellValue('Z'.$i,$edSeqNo)
+
                             ->setCellValue('AA'.$i,$subscriptionPaidBy)
                             ->setCellValue('AB'.$i,$subscriptionAmount)
                             ->setCellValue('AC'.$i,$membershipCurrency)
@@ -321,32 +321,25 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('AS'.$i, $supervisorFirstName)
                             ->setCellValue('AT'.$i, $supervisorLastName)
                             ->setCellValue('AU'.$i, $supReportingMethod)
-
                             ->setCellValue('AV'.$i, $subordinateFirstName)
                             ->setCellValue('AW'.$i, $subordinateLastName)
                             ->setCellValue('AX'.$i, $subReportingMethod)
-
-                            // ->setCellValue('AS'.$i, $langComments)
-                            // ->setCellValue('AT'.$i, $langFluency)
-                            // ->setCellValue('AU'.$i, $empLicenseType)
-                            // ->setCellValue('AV'.$i, $empLicenseIssuedDate)
-                            // ->setCellValue('AW'.$i, $empLicenseExpiryDate)
-
                             ->setCellValue('AY'.$i, $salPayGrade)
                             ->setCellValue('AZ'.$i, $salSalaryComponent)
+
                             ->setCellValue('BA'.$i, $salAmount)
                             ->setCellValue('BB'.$i, $salComments)
                             ->setCellValue('BC'.$i, $salPayFrequency)
                             ->setCellValue('BD'.$i, $salCurrency)
-                            ->setCellValue('BE'.$i, $ddAccountNumber)
-                            ->setCellValue('BF'.$i, $ddAccountType)
-                            ->setCellValue('BG'.$i, $ddRoutingNumber)
-                            ->setCellValue('BH'.$i, $ddAmount)
+                            // ->setCellValue('BE'.$i, $ddAccountNumber)
+                            // ->setCellValue('BF'.$i, $ddAccountType)
+                            // ->setCellValue('BG'.$i, $ddRoutingNumber)
+                            // ->setCellValue('BH'.$i, $ddAmount)
                             ->setCellValue('BI'.$i, $empContStartDate)
                             ->setCellValue('BJ'.$i, $empContEndDate)
                             ->setCellValue('BK'.$i, $empJobTitle)
                             ->setCellValue('BL'.$i, $empEmploymentStatus)
-                            ->setCellValue('BM'.$i, $classification)
+                            // ->setCellValue('BM'.$i, $classification)
                             ->setCellValue('BN'.$i, $empJobCategory)
                             ->setCellValue('BO'.$i, $empJoinedDate)
                             ->setCellValue('BP'.$i, $empSubUnit)
@@ -394,6 +387,7 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('X2', 'Currency')
                             ->setCellValue('Y2', 'Subscription Commence Date')
                             ->setCellValue('Z2', 'Subscription Renewal Date')
+                        
                             ->setCellValue('AA2', 'Company')
                             ->setCellValue('AB2', 'Job Title')
                             ->setCellValue('AC2', 'From')
@@ -418,22 +412,22 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('AV2', 'First Name')
                             ->setCellValue('AW2', 'Last Name')
                             ->setCellValue('AX2', 'Reporting Method')
-
                             ->setCellValue('AY2', 'Pay Grade')
                             ->setCellValue('AZ2', 'Salary Component')
+
                             ->setCellValue('BA2', 'Amount')
                             ->setCellValue('BB2', 'Comments')
                             ->setCellValue('BC2', 'Pay Frequency')
                             ->setCellValue('BD2', 'Currency')
-                            ->setCellValue('BE2', 'Direct Deposit Account Number')
-                            ->setCellValue('BF2', 'Direct Deposit Account Type')
-                            ->setCellValue('BG2', 'Direct Deposit Routing Number')
-                            ->setCellValue('BH2', 'Direct Deposit Amount')
+                            // ->setCellValue('BE2', 'Direct Deposit Account Number')
+                            // ->setCellValue('BF2', 'Direct Deposit Account Type')
+                            // ->setCellValue('BG2', 'Direct Deposit Routing Number')
+                            // ->setCellValue('BH2', 'Direct Deposit Amount')
                             ->setCellValue('BI2', 'Contract Start Date')
                             ->setCellValue('BJ2', 'Contract End Date')
                             ->setCellValue('BK2', 'Job Title')
                             ->setCellValue('BL2', 'Employment Status')
-                            ->setCellValue('BM2', 'Employment Classification')
+                            // ->setCellValue('BM2', 'Employment Classification')
                             ->setCellValue('BN2', 'Job Category')
                             ->setCellValue('BO2', 'Joined Date')
                             ->setCellValue('BP2', 'Sub Unit')

@@ -159,20 +159,20 @@ abstract class displayReportAction extends basePimReportAction {
 
 
                 $objPHPExcel->setActiveSheetIndex(0)
-                            ->mergeCells('A1:K1')
-                            ->mergeCells('L1:Q1')
-                            ->mergeCells('R1:T1')
-                            ->mergeCells('U1:Z1')
-                            ->mergeCells('AA1:AE1')
-                            ->mergeCells('AF1:AH1')
-                            ->mergeCells('AI1:AK1')
-                            ->mergeCells('AL1:AO1')
-                            ->mergeCells('AP1:AR1')
-                            ->mergeCells('AS1:AU1')
-                            ->mergeCells('AV1:AX1')
-                            ->mergeCells('AY1:Bh1')
-                            ->mergeCells('BI1:BP1')
-                            ->mergeCells('BQ1:BX1')
+                            ->mergeCells('A1:K1') //Personal
+                            ->mergeCells('L1:Q1') //Contact
+                            ->mergeCells('R1:T1') //Dependents
+                            ->mergeCells('U1:Z1') //Membership
+                            ->mergeCells('AA1:AE1') //Work Experience
+                            ->mergeCells('AF1:AH1')  //Education
+                            ->mergeCells('AI1:AK1') //Skills
+                            ->mergeCells('AL1:AO1') //Languages
+                            ->mergeCells('AP1:AR1') //License
+                            ->mergeCells('AS1:AU1') //Supervisor
+                            ->mergeCells('AV1:AX1') //Subordinates
+                            ->mergeCells('AY1:Bh1') //Salary
+                            ->mergeCells('BI1:BQ1') //Job
+                            ->mergeCells('BR1:BY1') //Immigration
 
                             ->setCellValue('A1', 'Personal')
                             ->setCellValue('L1', 'Contact Details')
@@ -187,7 +187,7 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('AV1', 'Subordinates')
                             ->setCellValue('AY1', 'Salary')
                             ->setCellValue('BI1', 'Job')
-                            ->setCellValue('BQ1', 'Immigration');
+                            ->setCellValue('BR1', 'Immigration');
 
                  // Initialize
                  $i = 2;
@@ -205,47 +205,69 @@ abstract class displayReportAction extends basePimReportAction {
                             (empty($rd['biometricId'])) ? $biometricId = '' : $biometricId = $rd['biometricId'];
                             (empty($rd['religion'])) ? $religion = '' : $religion = $rd['religion'];
                             (empty($rd['bloodType'])) ? $bloodType = '' : $bloodType = $rd['bloodType'];
+                           
+                           //contact
                             (empty($rd['address'])) ? $address = '' : $address = $rd['address'];
                             (empty($rd['homeTelephone'])) ? $homeTelephone = '' : $homeTelephone = $rd['homeTelephone'];
                             (empty($rd['mobile'])) ? $mobile = '' : $mobile = $rd['mobile'];
                             (empty($rd['workTelephone'])) ? $workTelephone = '' : $workTelephone = $rd['workTelephone'];
                             (empty($rd['workEmail'])) ? $workEmail = '' : $workEmail = $rd['workEmail'];
                             (empty($rd['otherEmail'])) ? $otherEmail = '' : $otherEmail = $rd['otherEmail'];
+                            
+                          //emergency contact
                             (empty($rd['ecname'][0])) ? $ecname = '' : $ecname = $rd['ecname'][0];
                             (empty($rd['ecHomeTelephone'][0])) ? $ecHomeTelephone = '' : $ecHomeTelephone = $rd['ecHomeTelephone'][0];
                             (empty($rd['ecWorkTelephone'][0])) ? $ecWorkTelephone = '' : $ecWorkTelephone = $rd['ecWorkTelephone'][0];
                             (empty($rd['ecRelationship'][0])) ? $ecRelationship = '' : $ecRelationship = $rd['ecRelationship'][0];
                             (empty($rd['ecMobile'][0])) ? $ecMobile = '' : $ecMobile = $rd['ecMobile'][0];
+                            
+                            //dependent
                             (empty($rd['dependentName'][0])) ? $dependentName = '' : $dependentName = $rd['dependentName'][0];
                             (empty($rd['dependentRelationship'][0])) ? $dependentRelationship = '' : $dependentRelationship = $rd['dependentRelationship'][0];
                             (empty($rd['dependentDateofBirth'][0])) ? $dependentDateofBirth = '' : $dependentDateofBirth = $rd['dependentDateofBirth'][0];
+                            
+                            //membership
                             (empty($rd['edSeqNo'][0])) ? $edSeqNo = '' : $edSeqNo = $rd['edSeqNo'][0];
                             (empty($rd['subscriptionPaidBy'][0])) ? $subscriptionPaidBy = '' : $subscriptionPaidBy = $rd['subscriptionPaidBy'][0];
                             (empty($rd['subscriptionAmount'][0])) ? $subscriptionAmount = '' : $subscriptionAmount = $rd['subscriptionAmount'][0];
                             (empty($rd['membershipCurrency'][0])) ? $membershipCurrency = '' : $membershipCurrency = $rd['membershipCurrency'][0];
                             (empty($rd['subscriptionCommenceDate'][0])) ? $subscriptionCommenceDate = '' : $subscriptionCommenceDate = $rd['subscriptionCommenceDate'][0];
                             (empty($rd['subscriptionRenewalDate'][0])) ? $subscriptionRenewalDate = '' : $subscriptionRenewalDate = $rd['subscriptionRenewalDate'][0];
+                            
+                            //work experience
                             (empty($rd['expCompany'][0])) ? $expCompany = '' : $expCompany = $rd['expCompany'][0];
                             (empty($rd['expJobTitle'][0])) ? $expJobTitle = '' : $expJobTitle = $rd['expJobTitle'][0];
                             (empty($rd['expFrom'][0])) ? $expFrom = '' : $expFrom = $rd['expFrom'][0];
                             (empty($rd['expTo'][0])) ? $expTo = '' : $expTo = $rd['expTo'][0];
                             (empty($rd['expComment'][0])) ? $expComment = '' : $expComment = $rd['expComment'][0];
+                            
+                            //skill
                             (empty($rd['skill'][0])) ? $skill = '' : $skill = $rd['skill'][0];
                             (empty($rd['skillYearsOfExperience'][0])) ? $skillYearsOfExperience = '' : $skillYearsOfExperience = $rd['skillYearsOfExperience'][0];
                             (empty($rd['skillComments'][0])) ? $skillComments = '' : $skillComments = $rd['skillComments'][0];
+                            
+                            //language
                             (empty($rd['langName'][0])) ? $langName = '' : $langName = $rd['langName'][0];
                             (empty($rd['langCompetency'][0])) ? $langCompetency = '' : $langCompetency = $rd['langCompetency'][0];
                             (empty($rd['langComments'][0])) ? $langComments = '' : $langComments = $rd['langComments'][0];
                             (empty($rd['langFluency'][0])) ? $langFluency = '' : $langFluency = $rd['langFluency'][0];
+                            
+                            //license
                             (empty($rd['empLicenseType'][0])) ? $empLicenseType = '' : $empLicenseType = $rd['empLicenseType'][0];
                             (empty($rd['empLicenseIssuedDate'][0])) ? $empLicenseIssuedDate = '' : $empLicenseIssuedDate = $rd['empLicenseIssuedDate'][0];
                             (empty($rd['empLicenseExpiryDate'][0])) ? $empLicenseExpiryDate = '' : $empLicenseExpiryDate = $rd['empLicenseExpiryDate'][0];
+                            
+                            //supervisor
                             (empty($rd['supervisorFirstName'][0])) ? $supervisorFirstName = '' : $supervisorFirstName = $rd['supervisorFirstName'][0];
                             (empty($rd['supervisorLastName'][0])) ? $supervisorLastName = '' : $supervisorLastName = $rd['supervisorLastName'][0];
                             (empty($rd['supReportingMethod'][0])) ? $supReportingMethod = '' : $supReportingMethod = $rd['supReportingMethod'][0];
+                            
+                            //subordinate
                             (empty($rd['subordinateFirstName'][0])) ? $subordinateFirstName = '' : $subordinateFirstName = $rd['subordinateFirstName'][0];
                             (empty($rd['subordinateLastName'][0])) ? $subordinateLastName = '' : $subordinateLastName = $rd['subordinateLastName'][0];
                             (empty($rd['subReportingMethod'][0])) ? $subReportingMethod = '' : $subReportingMethod = $rd['subReportingMethod'][0];
+                            
+                            //salary
                             (empty($rd['salPayGrade'][0])) ? $salPayGrade = '' : $salPayGrade = $rd['salPayGrade'][0];
                             (empty($rd['salSalaryComponent'][0])) ? $salSalaryComponent = '' : $salSalaryComponent = $rd['salSalaryComponent'][0];
                             (empty($rd['salAmount'][0])) ? $salAmount = '' : $salAmount = $rd['salAmount'][0];
@@ -256,15 +278,19 @@ abstract class displayReportAction extends basePimReportAction {
                             // (empty($rd['ddAccountType'][0])) ? $ddAccountType = '' : $ddAccountType = $rd['ddAccountType'][0];
                             // (empty($rd['ddRoutingNumber'][0])) ? $ddRoutingNumber = '' : $ddRoutingNumber = $rd['ddRoutingNumber'][0];
                             // (empty($rd['ddAmount'][0])) ? $ddAmount = '' : $ddAmount = $rd['ddAmount'][0];
+                            
+                            //job
                             (empty($rd['empContStartDate'][0])) ? $empContStartDate = '' : $empContStartDate = $rd['empContStartDate'][0];
                             (empty($rd['empContEndDate'][0])) ? $empContEndDate = '' : $empContEndDate = $rd['empContEndDate'][0];
                             (empty($rd['empJobTitle'][0])) ? $empJobTitle = '' : $empJobTitle = $rd['empJobTitle'][0];
                             (empty($rd['empEmploymentStatus'][0])) ? $empEmploymentStatus = '' : $empEmploymentStatus = $rd['empEmploymentStatus'][0];
-                            // (empty($rd['classification'][0])) ? $classification = '' : $classification = $rd['classification'][0];
+                            (empty($rd['classification'][0])) ? $classification = '' : $classification = $rd['classification'][0];
                             (empty($rd['empJobCategory'][0])) ? $empJobCategory = '' : $empJobCategory = $rd['empJobCategory'][0];
                             (empty($rd['empJoinedDate'][0])) ? $empJoinedDate = '' : $empJoinedDate = $rd['empJoinedDate'][0];
                             (empty($rd['empSubUnit'][0])) ? $empSubUnit = '' : $empSubUnit = $rd['empSubUnit'][0];
                             (empty($rd['empLocation'][0])) ? $empLocation = '' : $empLocation = $rd['empLocation'][0];
+                            
+                            //immigration
                             (empty($rd['empPassportNo'][0])) ? $empPassportNo = '' : $empPassportNo = $rd['empPassportNo'][0];
                             (empty($rd['empPassportIssuedDate'][0])) ? $empPassportIssuedDate = '' : $empPassportIssuedDate = $rd['empPassportIssuedDate'][0];
                             (empty($rd['empPassportExpiryDate'][0])) ? $empPassportExpiryDate = '' : $empPassportExpiryDate = $rd['empPassportExpiryDate'][0];
@@ -276,6 +302,8 @@ abstract class displayReportAction extends basePimReportAction {
 
 
                     $objPHPExcel->setActiveSheetIndex(0)
+
+                            //personal
                             ->setCellValue('A'.$i,$employeeId)
                             ->setCellValue('B'.$i,$employeeLastname)
                             ->setCellValue('C'.$i,$employeeFirstname)
@@ -287,46 +315,64 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('I'.$i,$biometricId)
                             ->setCellValue('J'.$i,$religion)
                             ->setCellValue('K'.$i,$bloodType)
+
+                            //contact
                             ->setCellValue('L'.$i,$address)
                             ->setCellValue('M'.$i,$homeTelephone)
                             ->setCellValue('N'.$i,$mobile)
                             ->setCellValue('O'.$i,$workTelephone)
                             ->setCellValue('P'.$i,$workEmail)
                             ->setCellValue('Q'.$i,$otherEmail)
+
+                            //emergency contact
                             ->setCellValue('R'.$i,$ecname)
                             ->setCellValue('S'.$i,$ecHomeTelephone)
                             ->setCellValue('T'.$i,$ecWorkTelephone)
                             ->setCellValue('U'.$i,$ecRelationship)
                             ->setCellValue('V'.$i,$ecMobile)
+
+                            //dependent
                             ->setCellValue('W'.$i,$dependentName)
                             ->setCellValue('X'.$i,$dependentRelationship)
                             ->setCellValue('Y'.$i,$dependentDateofBirth)
                             ->setCellValue('Z'.$i,$edSeqNo)
 
+                            //memberships
                             ->setCellValue('AA'.$i,$subscriptionPaidBy)
                             ->setCellValue('AB'.$i,$subscriptionAmount)
                             ->setCellValue('AC'.$i,$membershipCurrency)
                             ->setCellValue('AD'.$i,$subscriptionCommenceDate)
                             ->setCellValue('AE'.$i,$subscriptionRenewalDate)
+
+                            //work experience
                             ->setCellValue('AF'.$i,$expCompany)
                             ->setCellValue('AG'.$i,$expJobTitle)
                             ->setCellValue('AH'.$i,$expFrom)
                             ->setCellValue('AI'.$i,$expTo)
                             ->setCellValue('AJ'.$i,$expComment)
+
+                            //skill
                             ->setCellValue('AN'.$i,$skill)
                             ->setCellValue('AO'.$i,$skillYearsOfExperience)
                             ->setCellValue('AP'.$i,$skillComments)
+
+                            //language
                             ->setCellValue('AQ'.$i,$langName)
                             ->setCellValue('AR'.$i,$langCompetency)
+
+                            //supervisor
                             ->setCellValue('AS'.$i, $supervisorFirstName)
                             ->setCellValue('AT'.$i, $supervisorLastName)
                             ->setCellValue('AU'.$i, $supReportingMethod)
+
+                            //subordinate
                             ->setCellValue('AV'.$i, $subordinateFirstName)
                             ->setCellValue('AW'.$i, $subordinateLastName)
                             ->setCellValue('AX'.$i, $subReportingMethod)
+
+                            //salary
                             ->setCellValue('AY'.$i, $salPayGrade)
                             ->setCellValue('AZ'.$i, $salSalaryComponent)
-
                             ->setCellValue('BA'.$i, $salAmount)
                             ->setCellValue('BB'.$i, $salComments)
                             ->setCellValue('BC'.$i, $salPayFrequency)
@@ -335,15 +381,19 @@ abstract class displayReportAction extends basePimReportAction {
                             // ->setCellValue('BF'.$i, $ddAccountType)
                             // ->setCellValue('BG'.$i, $ddRoutingNumber)
                             // ->setCellValue('BH'.$i, $ddAmount)
+
+                            //job details
                             ->setCellValue('BI'.$i, $empContStartDate)
                             ->setCellValue('BJ'.$i, $empContEndDate)
                             ->setCellValue('BK'.$i, $empJobTitle)
                             ->setCellValue('BL'.$i, $empEmploymentStatus)
-                            // ->setCellValue('BM'.$i, $classification)
+                            ->setCellValue('BM'.$i, $classification)
                             ->setCellValue('BN'.$i, $empJobCategory)
                             ->setCellValue('BO'.$i, $empJoinedDate)
                             ->setCellValue('BP'.$i, $empSubUnit)
                             ->setCellValue('BQ'.$i, $empLocation)
+
+                            //immigration
                             ->setCellValue('BR'.$i, $empPassportNo)
                             ->setCellValue('BS'.$i, $empPassportIssuedDate)
                             ->setCellValue('BT'.$i, $empPassportExpiryDate)
@@ -361,6 +411,7 @@ abstract class displayReportAction extends basePimReportAction {
                 }          
 
                 $objPHPExcel->setActiveSheetIndex(0)
+                            //personal details
                             ->setCellValue('A2', 'Employee ID')
                             ->setCellValue('B2', 'Employee Last Name')
                             ->setCellValue('C2', 'Employee First Name')
@@ -372,15 +423,21 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('I2', 'Biometric Id')
                             ->setCellValue('J2', 'Religion')
                             ->setCellValue('K2', 'Blood Type')
+
+                            //contact details
                             ->setCellValue('L2', 'Address')
                             ->setCellValue('M2', 'Home Telephone')
                             ->setCellValue('N2', 'Mobile')
                             ->setCellValue('O2', 'Work Telephone')
                             ->setCellValue('P2', 'Work Email')
                             ->setCellValue('Q2', 'Other Email')
+
+                            //dependent
                             ->setCellValue('R2', 'Name')
                             ->setCellValue('S2', 'Relationship')
                             ->setCellValue('T2', 'Date of Birth ')
+                            
+                            //membership  details
                             ->setCellValue('U2', 'Membership')
                             ->setCellValue('V2', 'Subscription Paid By')
                             ->setCellValue('W2', 'Subscription Amount')
@@ -388,33 +445,43 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('Y2', 'Subscription Commence Date')
                             ->setCellValue('Z2', 'Subscription Renewal Date')
                         
+                            //work experience
                             ->setCellValue('AA2', 'Company')
                             ->setCellValue('AB2', 'Job Title')
                             ->setCellValue('AC2', 'From')
                             ->setCellValue('AD2', 'To')
                             ->setCellValue('AE2', 'Comment')
+                            
+                            //skills
                             ->setCellValue('AF2', 'Level')
                             ->setCellValue('AG2', 'Year')
                             ->setCellValue('AH2', 'Score')
                             ->setCellValue('AI2', 'Skill')
                             ->setCellValue('AJ2', 'Years of Experience')
                             ->setCellValue('AK2', 'Comments')
+                            
+                            //language
                             ->setCellValue('AL2', 'Language')
                             ->setCellValue('AM2', 'Competency')
                             ->setCellValue('AN2', 'Comments')
                             ->setCellValue('AO2', 'Fluency')
+                            
+                            //license
                             ->setCellValue('AP2', 'License Type')
                             ->setCellValue('AQ2', 'Issued Date')
                             ->setCellValue('AR2', 'Expiry Date')
+                            
+                            //supervisor/subordinate
                             ->setCellValue('AS2', 'First Name')
                             ->setCellValue('AT2', 'Last Name')
                             ->setCellValue('AU2', 'Reporting Method')
                             ->setCellValue('AV2', 'First Name')
                             ->setCellValue('AW2', 'Last Name')
                             ->setCellValue('AX2', 'Reporting Method')
+                            
+                            //salary
                             ->setCellValue('AY2', 'Pay Grade')
                             ->setCellValue('AZ2', 'Salary Component')
-
                             ->setCellValue('BA2', 'Amount')
                             ->setCellValue('BB2', 'Comments')
                             ->setCellValue('BC2', 'Pay Frequency')
@@ -423,15 +490,19 @@ abstract class displayReportAction extends basePimReportAction {
                             // ->setCellValue('BF2', 'Direct Deposit Account Type')
                             // ->setCellValue('BG2', 'Direct Deposit Routing Number')
                             // ->setCellValue('BH2', 'Direct Deposit Amount')
+
+                            //job details
                             ->setCellValue('BI2', 'Contract Start Date')
                             ->setCellValue('BJ2', 'Contract End Date')
                             ->setCellValue('BK2', 'Job Title')
                             ->setCellValue('BL2', 'Employment Status')
-                            // ->setCellValue('BM2', 'Employment Classification')
+                            ->setCellValue('BM2', 'Employment Classification')
                             ->setCellValue('BN2', 'Job Category')
                             ->setCellValue('BO2', 'Joined Date')
                             ->setCellValue('BP2', 'Sub Unit')
                             ->setCellValue('BQ2', 'Location')
+                            
+                            //immigration
                             ->setCellValue('BR2', 'Number')
                             ->setCellValue('BS2', 'Issued Date')
                             ->setCellValue('BT2', 'Expiry Date')

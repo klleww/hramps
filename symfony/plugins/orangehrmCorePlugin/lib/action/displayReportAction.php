@@ -170,7 +170,7 @@ abstract class displayReportAction extends basePimReportAction {
                             ->mergeCells('AP1:AR1') //License
                             ->mergeCells('AS1:AU1') //Supervisor
                             ->mergeCells('AV1:AX1') //Subordinates
-                            ->mergeCells('AY1:Bh1') //Salary
+                            ->mergeCells('AY1:BH1') //Salary
                             ->mergeCells('BI1:BQ1') //Job
                             ->mergeCells('BR1:BY1') //Immigration
 
@@ -432,45 +432,42 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('P2', 'Work Email')
                             ->setCellValue('Q2', 'Other Email')
 
-                            //dependent
+                            //Emergency Contact
                             ->setCellValue('R2', 'Name')
-                            ->setCellValue('S2', 'Relationship')
-                            ->setCellValue('T2', 'Date of Birth ')
+                            ->setCellValue('S2', 'Home Telephone')
+                            ->setCellValue('T2', 'Work Telephone')
+                            ->setCellValue('U2', 'Relationship')
+                            ->setCellValue('U2', 'Mobile Number')
+
+                            //dependent
+                            ->setCellValue('W2', 'Name')
+                            ->setCellValue('X2', 'Relationship')
+                            ->setCellValue('Y2', 'Date of Birth ')
+                            ->setCellValue('Z2', 'Sequence')
                             
                             //membership  details
-                            ->setCellValue('U2', 'Membership')
-                            ->setCellValue('V2', 'Subscription Paid By')
-                            ->setCellValue('W2', 'Subscription Amount')
-                            ->setCellValue('X2', 'Currency')
-                            ->setCellValue('Y2', 'Subscription Commence Date')
-                            ->setCellValue('Z2', 'Subscription Renewal Date')
+                            ->setCellValue('AA2', 'Subscription Paid By')
+                            ->setCellValue('AB2', 'Subscription Amount')
+                            ->setCellValue('AC2', 'Currency')
+                            ->setCellValue('AD2', 'Subscription Commence Date')
+                            ->setCellValue('AE2', 'Subscription Renewal Date')
                         
                             //work experience
-                            ->setCellValue('AA2', 'Company')
-                            ->setCellValue('AB2', 'Job Title')
-                            ->setCellValue('AC2', 'From')
-                            ->setCellValue('AD2', 'To')
-                            ->setCellValue('AE2', 'Comment')
+                            ->setCellValue('AF2', 'Company')
+                            ->setCellValue('AG2', 'Job Title')
+                            ->setCellValue('AH2', 'From')
+                            ->setCellValue('AI2', 'To')
+                            ->setCellValue('AJ2', 'Comment')
                             
                             //skills
-                            ->setCellValue('AF2', 'Level')
-                            ->setCellValue('AG2', 'Year')
-                            ->setCellValue('AH2', 'Score')
-                            ->setCellValue('AI2', 'Skill')
-                            ->setCellValue('AJ2', 'Years of Experience')
-                            ->setCellValue('AK2', 'Comments')
+                            ->setCellValue('AN2', 'Skill')
+                            ->setCellValue('AO2', 'Years of Experience')
+                            ->setCellValue('AP2', 'Comments')
                             
                             //language
-                            ->setCellValue('AL2', 'Language')
-                            ->setCellValue('AM2', 'Competency')
-                            ->setCellValue('AN2', 'Comments')
-                            ->setCellValue('AO2', 'Fluency')
-                            
-                            //license
-                            ->setCellValue('AP2', 'License Type')
-                            ->setCellValue('AQ2', 'Issued Date')
-                            ->setCellValue('AR2', 'Expiry Date')
-                            
+                            ->setCellValue('AQ2', 'Language')
+                            ->setCellValue('AR2', 'Competency')
+                                                       
                             //supervisor/subordinate
                             ->setCellValue('AS2', 'First Name')
                             ->setCellValue('AT2', 'Last Name')
@@ -510,7 +507,7 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('BV2', 'Issued By')
                             ->setCellValue('BW2', 'Eligibility Review Date')
                             ->setCellValue('BX2', 'Comments')
-                            ->setCellValue('BXY2', 'Document Type');
+                            ->setCellValue('BY2', 'Document Type');
 
                 $objPHPExcel->getActiveSheet()->setTitle('Report');
 

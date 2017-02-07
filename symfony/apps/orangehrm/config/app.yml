@@ -1,5 +1,8 @@
 # default values
 all:
+  institution_name: 'Mindanao State University'
+  address1: Republic of the Philippined
+  address2: General Santos City
   items_per_page:  50
   sort_asc_class: 'ASC'
   sort_desc_class: 'DESC'

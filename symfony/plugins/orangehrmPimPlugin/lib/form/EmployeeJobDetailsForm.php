@@ -62,7 +62,7 @@ class EmployeeJobDetailsForm extends BaseForm {
             'job_title' => new sfWidgetFormSelect(array('choices' => $jobTitles)),
             'emp_status' => new sfWidgetFormSelect(array('choices' => $employeeStatuses)), // employement status
             'classification' => new sfWidgetFormSelect(array('choices' => 
-                array('' => "-- " . __('Select') . " --", 'Faculty' => __('Faculty'), 'Faculty w/ Admin Function' => __('Faculty w/ Admin Function'), 'Staff' => __('Staff')))),
+                array('' => "-- " . __('Select') . " --", 'Faculty' => __('Faculty'), 'Staff' => __('Staff')))),
             'terminated_date' => new ohrmWidgetDatePicker(array(), array('id' => 'job_terminated_date')),
             'termination_reason' => new sfWidgetFormTextarea(),
             'eeo_category' => new sfWidgetFormSelect(array('choices' => $eeoCategories)),

@@ -2,7 +2,7 @@
 <?php
 
 /**
- * added by: ariane
+ * added by: ariane adajar
  * added on: 02/03/2017
  */
 class ohrmReportWidgetClassification extends sfWidgetForm implements ohrmEnhancedEmbeddableWidget {
@@ -50,7 +50,7 @@ class ohrmReportWidgetClassification extends sfWidgetForm implements ohrmEnhance
      */
     private function _getClassificationTypes() {
 
-        $classificationType = array('-1' => __('All'), 'Faculty' => __('Faculty'), 'Faculty w/ Admin Function' => __('Faculty w/ Admin Function'),'Staff' => __('Staff'));
+        $classificationType = array('-1' => __('All'), 'Faculty' => __('Faculty'),'Staff' => __('Staff'));
 
         return $classificationType;
     }
@@ -111,8 +111,6 @@ class ohrmReportWidgetClassification extends sfWidgetForm implements ohrmEnhance
             $whereClausePart = null;
         } else if ($value == 'Faculty') {
             $whereClausePart = $fieldName . " " . $this->getWhereClauseCondition() . " " . "Faculty";
-        } else if ($value == 'Faculty w/ Admin Function') {
-            $whereClausePart = $fieldName . " " . $this->getWhereClauseCondition() . " " . "Faculty w/ Admin Function";
         } else {
             $whereClausePart = $fieldName . " " . $this->getWhereClauseCondition() . " " . "Staff";
         }

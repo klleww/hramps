@@ -5,6 +5,7 @@
     <div class="head">
         <h1><?php echo __("Employee Reports"); ?></h1>
     </div>
+
     <div class="inner" >
         <form action="<?php echo url_for("core/viewDefinedPredefinedReports"); ?>" id="searchForm" method="post">
             <?php echo $searchForm['_csrf_token']->render(); ?>
@@ -17,7 +18,7 @@
                 </ol>
                 
                 <p>
-                   <input type="submit" class="searchBtn" value="<?php echo __('Search') ?>" name="_search" />
+                <input type="submit" class="searchBtn" value="<?php echo __('Search') ?>" name="_search" />
                 <input type="button" class="reset" value="<?php echo __('Reset') ?>" name="_reset" />
                 <?php echo $searchForm->renderHiddenFields(); ?>
                 </p>
@@ -31,6 +32,44 @@
 <?php include_component('core', 'ohrmList', $parmetersForListComponent); ?>
 
 <?php }?>
+
+<div class="box toggableForm">
+    <div class="head">
+            <h1><?php echo __("Census Reports"); ?></h1>
+    </div>
+ 
+    <div class="inner" >
+        <table class="table table-striped" at-table at-paginated at-list="filteredList" at-config="config">
+        <thead>
+        <tr>
+         <th class="check" style="width:2%"><input type='checkbox' id='checkAllRep' class="checkboxRep" /></th>
+             <th><label for="">Report Name</label></th>
+             <th><label for="">Options</label></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td class='check'><input type='checkbox' class='checkboxRep' name='chkmrepdel[]' value='<?php echo $chkBoxValue ?>'/></td>
+                <td><class="totalEmployees" valign="top">Total Employees</label></td>
+                 <td>
+              <form action="" method="post">
+                <input type='hidden' name='file_data' value='{{x.file_data}}' />
+                <input type='hidden' name='filename' value='{{x.filename}}' />
+                <input type='submit' value='View PDF Report' />
+              </form>
+            </td>               
+        </tr>
+        </tbody>
+        </table>
+     <dir-pagination-controls></dir-pagination-controls>
+        
+
+    </div>
+</div>
+
+
+
+
 
 <!-- Confirmation box HTML: Begins -->
 <div class="modal hide" id="deleteConfModal">

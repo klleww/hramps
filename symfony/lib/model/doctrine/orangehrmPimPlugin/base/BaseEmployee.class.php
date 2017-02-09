@@ -323,6 +323,11 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'default' => '',
              'length' => 100,
              ));
+        $this->hasColumn('psipop_no as psipopNo', 'string', 25, array(
+             'type' => 'string',
+             'default' => '',
+             'length' => 25,
+             ));
         $this->hasColumn('emp_smoker as smoker', 'integer', 2, array(
              'type' => 'integer',
              'default' => '0',

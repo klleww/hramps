@@ -20,6 +20,7 @@ abstract class BaseEmployeeForm extends BaseFormDoctrine
       'firstName'             => new sfWidgetFormInputText(),
       'middleName'            => new sfWidgetFormInputText(),
       'nickName'              => new sfWidgetFormInputText(),
+      'psipopNo'              => new sfWidgetFormInputText(),
       'smoker'                => new sfWidgetFormInputText(),
       'ssn'                   => new sfWidgetFormInputText(),
       'sin'                   => new sfWidgetFormInputText(),

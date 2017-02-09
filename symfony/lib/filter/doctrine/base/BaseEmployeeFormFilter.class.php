@@ -17,6 +17,7 @@ abstract class BaseEmployeeFormFilter extends BaseFormFilterDoctrine
       'firstName'             => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'middleName'            => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'nickName'              => new sfWidgetFormFilterInput(),
+      'psipopNo'              => new sfWidgetFormFilterInput(),
       'smoker'                => new sfWidgetFormFilterInput(),
       'ssn'                   => new sfWidgetFormFilterInput(),
       'sin'                   => new sfWidgetFormFilterInput(),

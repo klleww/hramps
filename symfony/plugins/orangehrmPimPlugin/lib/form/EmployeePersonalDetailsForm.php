@@ -121,6 +121,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
             'txtEmpMiddleName' => new sfWidgetFormInputText(),
             'txtEmpNickName' => new sfWidgetFormInputText(),
             'txtPsipopNo' => new sfWidgetFormInputText(),
+            'txtPsipopClass' => new sfWidgetFormInputText(),
             'optGender' => new sfWidgetFormChoice(array('expanded' => true, 'choices' => array(1 => __("Male"), 2 => __("Female")))),
             'cmbNation' => new sfWidgetFormSelect(array('choices' => $this->getNationalityList())),
             // 'txtOtherID' => new sfWidgetFormInputText(),
@@ -159,6 +160,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
         // $widgets['txtOtherID']->setAttribute('value', $this->employee->otherId);
         $widgets['txtBiometricId']->setAttribute('value', $this->employee->biometricId);
         $widgets['txtPsipopNo']->setAttribute('value', $this->employee->psipopNo);
+        $widgets['txtPsipopClass']->setAttribute('value', $this->employee->psipopClass);
     
 
         return $widgets;
@@ -177,6 +179,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
                     array('required' => 'Last Name Empty!', 'max_length' => 'Last Name Length exceeded 30 characters')),
             'txtEmpNickName' => new sfValidatorString(array('required' => false, 'trim' => true)),
             'txtPsipopNo' => new sfValidatorString(array('required' => false)),
+            'txtPsipopClass' => new sfValidatorString(array('required' => false)),
             'optGender' => new sfValidatorChoice(array('required' => false,
                 'choices' => array(Employee::GENDER_MALE, Employee::GENDER_FEMALE),
                 'multiple' => false)),
@@ -242,6 +245,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
             // $employee->otherId = $this->getValue('txtOtherID');
             $employee->biometricId = $this->getValue('txtBiometricId');
             $employee->psipopNo = $this->getValue('txtPsipopNo');
+            $employee->psipopClass = $this->getValue('txtPsipopClass');
 
             $employee->emp_marital_status = $this->getValue('cmbMarital');
             $employee->religion = $this->getValue('cmbReligion');

@@ -63,6 +63,10 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
                             <label for="personal_txtPsipopNo"><?php echo __('PSIPOP No'); ?></label>
                             <?php echo $form['txtPsipopNo']->render(array("maxlength" => 30, "class" => "editable")); ?>
                         </li>
+                          <li>
+                            <label for="personal_txtPsipopClass"><?php echo __('PSIPOP Class'); ?></label>
+                            <?php echo $form['txtPsipopClass']->render(array("maxlength" => 30, "class" => "editable")); ?>
+                        </li>
                       
                         <?php if ($showSSN) : ?>
                         <li class="new">

@@ -1,12 +1,10 @@
 <?php
 
 /**
- * baseSchedulingReport.php
- *
- * @author Alvin Quinones <ajmquinones@gmail.com>
- * @copyright (c) 2016, Segworks Technologies Corporation
+ * baseTotalReport.php
+ * modified by: ariane adajar<arianeadajar@gmail.com>
+ * modified date: 2/20/2017
  */
-
 /**
  * Description of baseSchedulingReport
  */

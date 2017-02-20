@@ -1,10 +1,9 @@
 <?php
 
 /**
- * SchedulePrintout.php
- *
- * @author Alvin Quinones <ajmquinones@gmail.com>
- * @copyright (c) 2016, Segworks Technologies Corporation
+ * TotalPrintout.php
+ * modified by: ariane adajar<arianeadajar@gmail.com>
+ * modified date: 2/20/2017
  */
  
 /**

@@ -1,25 +1,4 @@
 <?php
-
-/**
- * OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
- * all the essential functionalities required for any enterprise.
- * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
- *
- * OrangeHRM is free software; you can redistribute it and/or modify it under the terms of
- * the GNU General Public License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along with this program;
- * if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA  02110-1301, USA
- */
-?>
-
-<?php
 use_stylesheet(plugin_web_path('orangehrmLeavePlugin', 'css/addLeaveEntitlementSuccess.css'));
 use_javascripts_for_form($form);
 use_stylesheets_for_form($form);
@@ -65,7 +44,7 @@ use_stylesheets_for_form($form);
 <div class="modal hide" id="noselection">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo 'OrangeHRM - ' . __('No matching employees'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('No matching employees'); ?></h3>
   </div>
   <div class="modal-body">
     <p><?php echo __('No employees match the selected filters'); ?></p>
@@ -78,7 +57,7 @@ use_stylesheets_for_form($form);
 <div class="modal hide" id="preview" style="width:500px">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo 'OrangeHRM - ' . __('Matching Employees'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Matching Employees'); ?></h3>
   </div>
   <div class="modal-body">
       <span><?php echo __('The selected leave entitlement will be applied to the following employees.');?></span>
@@ -98,7 +77,7 @@ use_stylesheets_for_form($form);
 <div class="modal hide" id="employeeEntitlement" style="width:500px">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo 'OrangeHRM - ' . __('Updating Entitlement'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Updating Entitlement'); ?></h3>
   </div>
   <div class="modal-body">
       
@@ -115,7 +94,7 @@ use_stylesheets_for_form($form);
 <!-- Confirmation box for employee entitlement-->
 <div class="modal hide" id="bulkAssignWaitDlg" style="width:500px">
   <div class="modal-header">
-    <h3><?php echo 'OrangeHRM - ' . __('Updating Entitlement'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Updating Entitlement'); ?></h3>
   </div>
   <div class="modal-body">
       <p id="buildAssignWait" class="loading_message"></p>

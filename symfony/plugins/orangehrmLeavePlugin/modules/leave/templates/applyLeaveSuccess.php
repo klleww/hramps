@@ -41,7 +41,7 @@ use_stylesheet(plugin_web_path('orangehrmLeavePlugin', 'css/assignLeaveSuccess.c
 <div class="modal hide" id="balance_details">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo 'OrangeHRM - ' . __('Leave Balance Details'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Leave Balance Details'); ?></h3>
   </div>
   <div class="modal-body">
     <p><?php echo __('As of Date') . ':'; ?> <span id="balance_as_of"></span></p>
@@ -86,7 +86,7 @@ use_stylesheet(plugin_web_path('orangehrmLeavePlugin', 'css/assignLeaveSuccess.c
 <div class="modal hide" id="multiperiod_balance">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo 'OrangeHRM - ' . __('Leave Balance Details'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Leave Balance Details'); ?></h3>
   </div>
   <div class="modal-body">
     <table border="0" cellspacing="0" cellpadding="0" class="table">

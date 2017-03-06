@@ -24,6 +24,8 @@ class PayGradeCurrencyForm extends BaseForm {
 		    'currencyId' => new sfWidgetFormInputHidden(),
 		    'payGradeId' => new sfWidgetFormInputHidden(),
 		    'salaryAmount' => new sfWidgetFormInputText(),
+		    'level_name' => new sfWidgetFormSelect(array('choices' => 
+		    	array('' => "-- " . __('Select') . " --", '1st Level' => __('1st Level'), '2nd Level' => __('2nd Level'), 'Executive Managerial' => __('Executive Managerial')))),
 		    'currencyName' => new sfWidgetFormInputText(),
 		    'minSalary' => new sfWidgetFormInputText(),
 		    'maxSalary' => new sfWidgetFormInputText(),
@@ -33,6 +35,7 @@ class PayGradeCurrencyForm extends BaseForm {
 		    'currencyId' => new sfValidatorString(array('required' => false)),
 		    'payGradeId' => new sfValidatorNumber(array('required' => false)),
 		    'salaryAmount' => new sfValidatorNumber(array('required' => false)),
+		    'level_name' => new sfValidatorNumber(array('required' => false)),
 		    'currencyName' => new sfValidatorString(array('required' => true)),
 		    'minSalary' => new sfValidatorNumber(array('required' => false)),
 		    'maxSalary' => new sfValidatorNumber(array('required' => false)),
@@ -53,6 +56,7 @@ class PayGradeCurrencyForm extends BaseForm {
 			$currency = new PayGradeCurrency();
 		}
 		$currency->salaryAmount = $this->getValue('salaryAmount');
+		$currency->level_name = $this->getValue('level_name');
 		$currency->setPayGradeId($this->payGradeId);
 		$currency->setCurrencyId($temp[0]);
 		$currency->setMinSalary(sprintf("%01.2f", $this->getValue('minSalary')));

@@ -58,7 +58,7 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
 <div id="addEditCurrency" class="box">
     
     <div class="head">
-        <h1 id="currencyHeading"><?php echo __("Salary Grade Levels"); ?></h1>
+        <h1 id="currencyHeading"><?php echo __("Salary Grade Steps"); ?></h1>
     </div>
     
     <div class="inner">
@@ -83,8 +83,8 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
                     </li>
 
                     <li>
-                        <?php echo $currencyForm['level_name']->renderLabel(__('Position Level') . ' <em>*</em>'); ?>
-                        <?php echo $currencyForm['level_name']->render(array("class" => "formInput", "maxlength" => 52)); ?>
+                        <?php echo $currencyForm['levelName']->renderLabel(__('Position Level') . ' <em>*</em>'); ?>
+                        <?php echo $currencyForm['levelName']->render(array("class" => "formInput", "maxlength" => 52)); ?>
                     </li>
 
                      
@@ -124,7 +124,7 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
 <div id="currency" class="box miniList">
     
     <div class="head">
-        <h1 id="currencyListHeading"><?php echo __("Salary Grade Levels"); ?></h1>
+        <h1 id="currencyListHeading"><?php echo __("Salary Grade Steps"); ?></h1>
     </div>
     
     <div class="inner"> 
@@ -174,7 +174,7 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
                                 <td><?php echo __($currency->getCurrencyType()->getCurrencyName()); ?></td>
                             <?php }?>
                             <td class=""><?php echo number_format($currency->salaryAmount, 2, '.', ','); ?></td>
-                             <td class=""><?php echo __($currency->level_name); ?></td>
+                             <td class=""><?php echo __($currency->levelName); ?></td>
                            <!-- <td class=""><?php echo number_format($currency->minSalary, 2, '.', ','); ?></td>
                             <td class=""><?php echo number_format($currency->maxSalary, 2, '.', ','); ?></td> -->
                         </tr>

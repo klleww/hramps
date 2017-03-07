@@ -344,6 +344,8 @@ function getCurrencyDetails(url, curName){
 
         $('#payGradeCurrency_currencyId').val(data.currency_id);
         $('#payGradeCurrency_currencyName').val(data.currency_id+" - "+curName);
+        $('#payGradeCurrency_salaryAmount').val(data.salaryAmount);
+        $('#payGradeCurrency_levelName').val(data.levelName);
         $('#payGradeCurrency_minSalary').val(data.minSalary);
         $('#payGradeCurrency_maxSalary').val(data.maxSalary);
 

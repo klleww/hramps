@@ -37,7 +37,7 @@
                             <input name="" disabled="disabled" id="maxSalary" type="hidden" value=""/>
                             <?php echo $form['basic_salary']->renderLabel(__('Amount') . ' <em>*</em>', array("class" => "AmountLabel")); ?>
                             <?php echo $form['basic_salary']->render(array("class" => "salaryText")) ?>
-                            <!-- <label for="minSalary" id="minMaxSalaryLbl" class="fieldHelpRight"></label> -->
+                            <label for="minSalary" id="minMaxSalaryLbl" class="fieldHelpRight"></label>
                         </li>
                         <li>
                             <?php echo $form['effectivityDate']->renderLabel(__('Date Effective')); ?>
@@ -311,6 +311,7 @@
         $("#minSalary").val('--');
         $("#maxSalary").val('--');
         $('#minMaxSalaryLbl').text('');
+        $('#salaryAmountLbl').text('');
     }
 
     function getMinMax(salaryGrade, currency) {
@@ -320,6 +321,7 @@
             $("#minSalary").val('');
             $("#maxSalary").val('');
             $('#minMaxSalaryLbl').text('');
+            $('#salaryAmountLbl').text('');
         }
         else {
             var url = '<?php echo url_for('admin/getMinMaxSalaryJson'); ?>' + '/salaryGrade/' + salaryGrade + "/currency/" + currency;
@@ -328,9 +330,12 @@
 
                 var minSalary = false;
                 var maxSalary = false;
+                var salaryAmount = false;
                 var minVal = "";
                 var maxVal = "";
+                var salaryVal = "";
                 var minMaxLbl = "";
+                var salaryLbl = "";
 
                 if (data) {
                     if (data.min) {
@@ -342,13 +347,20 @@
                     if (data.max) {
                         maxSalary = data.max;
                         maxVal = maxSalary;
-                        minMaxLbl = minMaxLbl + '<?php echo __("Max"); ?>' + " : " + maxSalary;
+                        minMaxLbl = minMaxLbl + '<?php echo __("Max"); ?>' + " : " + maxSalary + " ";
+                    }
+
+                    if (data.amount) {
+                        salaryAmount = data.amount;
+                        salaryVal = salaryAmount;
+                        salaryLbl = salaryLbl + '<?php echo __("Salary"); ?>' + " : " + salaryAmount;
                     }
                 }
 
                 $("#minSalary").val(minVal);
                 $("#maxSalary").val(maxVal);
                 $('#minMaxSalaryLbl').text(minMaxLbl);
+                $('#salaryAmountLbl').text(salaryLbl);
             });
 
         }
@@ -513,7 +525,7 @@
         
         var min = parseFloat($('#minSalary').val());
         var max = parseFloat($('#maxSalary').val());
-        var amount = parseFloat($('#salary_basic_salary').val().trim());
+        var amount = parseFloat($('#salaryAmount').val().trim());
         
         if (!isNaN(amount) && (min != 0 || max != 0)) {
             

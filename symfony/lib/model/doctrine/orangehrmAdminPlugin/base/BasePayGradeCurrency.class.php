@@ -56,6 +56,10 @@ abstract class BasePayGradeCurrency extends sfDoctrineRecord
              'type' => 'float',
              'length' => 2147483647,
              ));
+        $this->hasColumn('level_name as levelName', 'string', 50, array(
+             'type' => 'string',
+             'length' => 50,
+             ));
     }
 
     public function setUp()

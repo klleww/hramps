@@ -35,7 +35,7 @@ class PayGradeCurrencyForm extends BaseForm {
 		    'currencyId' => new sfValidatorString(array('required' => false)),
 		    'payGradeId' => new sfValidatorNumber(array('required' => false)),
 		    'salaryAmount' => new sfValidatorNumber(array('required' => false)),
-		    'levelName' => new sfValidatorNumber(array('required' => false)),
+		    'levelName' => new sfValidatorString(array('required' => false)),
 		    'currencyName' => new sfValidatorString(array('required' => true)),
 		    'minSalary' => new sfValidatorNumber(array('required' => false)),
 		    'maxSalary' => new sfValidatorNumber(array('required' => false)),

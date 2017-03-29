@@ -86,7 +86,7 @@ class EmployeeListConfigurationFactory extends ohrmListConfigurationFactory {
         ));
 
         $header6->populateFromArray(array(
-            'name' => 'Sub Unit',
+            'name' => 'Cost Center',
             'width' => '15%',
             'isSortable' => true,
             'sortField' => 'subDivision',

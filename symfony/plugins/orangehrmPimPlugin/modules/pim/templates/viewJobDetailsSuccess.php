@@ -80,7 +80,7 @@
                             <?php echo $form['joined_date']->render(array("class" => "formDateInput")); ?>
                         </li>
                         <li>
-                            <?php echo $form['sub_unit']->renderLabel(__('Sub Unit')); ?>
+                            <?php echo $form['sub_unit']->renderLabel(__('Cost Center')); ?>
                             <?php echo $form['sub_unit']->render(array("class" => "formSelect")); ?>
                         </li>
                         <li>

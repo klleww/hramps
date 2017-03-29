@@ -178,7 +178,7 @@ class EmployeeSearchForm extends BaseForm {
             'termination' => __('Include'),
             'supervisor_name' => __('Supervisor Name'),
             'job_title' => __('Job Title'),
-            'sub_unit' => __('Sub Unit')
+            'sub_unit' => __('Cost Center')
         );
         return $labels;
     }

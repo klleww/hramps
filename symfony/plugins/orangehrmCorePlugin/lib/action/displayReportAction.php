@@ -172,7 +172,7 @@ abstract class displayReportAction extends basePimReportAction {
                             ->mergeCells('AV1:AX1') //Subordinates
                             ->mergeCells('AY1:BH1') //Salary
                             ->mergeCells('BI1:BQ1') //Job
-                            ->mergeCells('BR1:BY1') //Immigration
+                            // ->mergeCells('BR1:BY1') //Immigration
 
                             ->setCellValue('A1', 'Personal')
                             ->setCellValue('L1', 'Contact Details')
@@ -187,7 +187,7 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('AV1', 'Subordinates')
                             ->setCellValue('AY1', 'Salary')
                             ->setCellValue('BI1', 'Job')
-                            ->setCellValue('BR1', 'Immigration');
+                            // ->setCellValue('BR1', 'Immigration');
 
                  // Initialize
                  $i = 2;
@@ -291,14 +291,14 @@ abstract class displayReportAction extends basePimReportAction {
                             (empty($rd['empLocation'][0])) ? $empLocation = '' : $empLocation = $rd['empLocation'][0];
                             
                             //immigration
-                            (empty($rd['empPassportNo'][0])) ? $empPassportNo = '' : $empPassportNo = $rd['empPassportNo'][0];
-                            (empty($rd['empPassportIssuedDate'][0])) ? $empPassportIssuedDate = '' : $empPassportIssuedDate = $rd['empPassportIssuedDate'][0];
-                            (empty($rd['empPassportExpiryDate'][0])) ? $empPassportExpiryDate = '' : $empPassportExpiryDate = $rd['empPassportExpiryDate'][0];
-                            (empty($rd['empPassportEligibleStatus'][0])) ? $empPassportEligibleStatus = '' : $empPassportEligibleStatus = $rd['empPassportEligibleStatus'][0];
-                            (empty($rd['empPassportIssuedBy'][0])) ? $empPassportIssuedBy = '' : $empPassportIssuedBy = $rd['empPassportIssuedBy'][0];
-                            (empty($rd['empPassportEligibleReviewDate'][0])) ? $empPassportEligibleReviewDate = '' : $empPassportEligibleReviewDate = $rd['empPassportEligibleReviewDate'][0];
-                            (empty($rd['empPassportComments'][0])) ? $empPassportComments = '' : $empPassportComments = $rd['empPassportComments'][0];
-                            (empty($rd['documentType'][0])) ? $documentType = '' : $documentType = $rd['documentType'][0];
+                            // (empty($rd['empPassportNo'][0])) ? $empPassportNo = '' : $empPassportNo = $rd['empPassportNo'][0];
+                            // (empty($rd['empPassportIssuedDate'][0])) ? $empPassportIssuedDate = '' : $empPassportIssuedDate = $rd['empPassportIssuedDate'][0];
+                            // (empty($rd['empPassportExpiryDate'][0])) ? $empPassportExpiryDate = '' : $empPassportExpiryDate = $rd['empPassportExpiryDate'][0];
+                            // (empty($rd['empPassportEligibleStatus'][0])) ? $empPassportEligibleStatus = '' : $empPassportEligibleStatus = $rd['empPassportEligibleStatus'][0];
+                            // (empty($rd['empPassportIssuedBy'][0])) ? $empPassportIssuedBy = '' : $empPassportIssuedBy = $rd['empPassportIssuedBy'][0];
+                            // (empty($rd['empPassportEligibleReviewDate'][0])) ? $empPassportEligibleReviewDate = '' : $empPassportEligibleReviewDate = $rd['empPassportEligibleReviewDate'][0];
+                            // (empty($rd['empPassportComments'][0])) ? $empPassportComments = '' : $empPassportComments = $rd['empPassportComments'][0];
+                            // (empty($rd['documentType'][0])) ? $documentType = '' : $documentType = $rd['documentType'][0];
 
 
                     $objPHPExcel->setActiveSheetIndex(0)
@@ -394,14 +394,14 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('BQ'.$i, $empLocation)
 
                             //immigration
-                            ->setCellValue('BR'.$i, $empPassportNo)
-                            ->setCellValue('BS'.$i, $empPassportIssuedDate)
-                            ->setCellValue('BT'.$i, $empPassportExpiryDate)
-                            ->setCellValue('BU'.$i, $empPassportEligibleStatus)
-                            ->setCellValue('BV'.$i, $empPassportIssuedBy)
-                            ->setCellValue('BW'.$i, $empPassportEligibleReviewDate)
-                            ->setCellValue('BX'.$i, $empPassportComments)
-                            ->setCellValue('BY'.$i, $documentType);
+                            // ->setCellValue('BR'.$i, $empPassportNo)
+                            // ->setCellValue('BS'.$i, $empPassportIssuedDate)
+                            // ->setCellValue('BT'.$i, $empPassportExpiryDate)
+                            // ->setCellValue('BU'.$i, $empPassportEligibleStatus)
+                            // ->setCellValue('BV'.$i, $empPassportIssuedBy)
+                            // ->setCellValue('BW'.$i, $empPassportEligibleReviewDate)
+                            // ->setCellValue('BX'.$i, $empPassportComments)
+                            // ->setCellValue('BY'.$i, $documentType);
                     }   
                 //  Auto Size Cells
                 for($col = 'A'; $col !== 'BZ'; $col++) {
@@ -500,14 +500,14 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('BQ2', 'Location')
                             
                             //immigration
-                            ->setCellValue('BR2', 'Number')
-                            ->setCellValue('BS2', 'Issued Date')
-                            ->setCellValue('BT2', 'Expiry Date')
-                            ->setCellValue('BU2', 'Eligibility Status')
-                            ->setCellValue('BV2', 'Issued By')
-                            ->setCellValue('BW2', 'Eligibility Review Date')
-                            ->setCellValue('BX2', 'Comments')
-                            ->setCellValue('BY2', 'Document Type');
+                            // ->setCellValue('BR2', 'Number')
+                            // ->setCellValue('BS2', 'Issued Date')
+                            // ->setCellValue('BT2', 'Expiry Date')
+                            // ->setCellValue('BU2', 'Eligibility Status')
+                            // ->setCellValue('BV2', 'Issued By')
+                            // ->setCellValue('BW2', 'Eligibility Review Date')
+                            // ->setCellValue('BX2', 'Comments')
+                            // ->setCellValue('BY2', 'Document Type');
 
                 $objPHPExcel->getActiveSheet()->setTitle('Report');
 

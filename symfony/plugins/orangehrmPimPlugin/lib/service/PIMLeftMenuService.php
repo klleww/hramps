@@ -47,10 +47,10 @@ class PIMLeftMenuService {
             'module' => 'pim',
             'data_groups' => array('dependents', 'dependents_attachment', 'dependents_custom_fields'),
             'label' => 'Dependents'),
-        'viewImmigration' => array(
-            'module' => 'pim',
-            'data_groups' => array('immigration', 'immigration_attachment', 'immigration_custom_fields'),
-            'label' => 'Immigration'),
+        // 'viewImmigration' => array(
+        //     'module' => 'pim',
+        //     'data_groups' => array('immigration', 'immigration_attachment', 'immigration_custom_fields'),
+        //     'label' => 'Immigration'),
         'viewJobDetails' => array(
             'module' => 'pim',
             'data_groups' => array('job_details', 'job_attachment', 'job_custom_fields'),

@@ -30,8 +30,8 @@ class ohrmReportWidgetAgeGroup extends sfWidgetForm implements ohrmEnhancedEmbed
 
         $choices = array(
                 '' => '-- ' . __('Select') . ' --',
-                '1' => __('Less Than'),
-                '2' => __('Greater Than'),
+                '1' => __('Less Than or Equal To'),
+                '2' => __('Greater Than or Equal To'),
                 '3' => __('Range')
         );
 

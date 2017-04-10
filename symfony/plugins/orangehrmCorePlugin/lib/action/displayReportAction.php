@@ -186,7 +186,7 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('AS1', 'Supervisors')
                             ->setCellValue('AV1', 'Subordinates')
                             ->setCellValue('AY1', 'Salary')
-                            ->setCellValue('BI1', 'Job')
+                            ->setCellValue('BI1', 'Job');
                             // ->setCellValue('BR1', 'Immigration');
 
                  // Initialize
@@ -282,12 +282,12 @@ abstract class displayReportAction extends basePimReportAction {
                             //job
                             (empty($rd['empContStartDate'][0])) ? $empContStartDate = '' : $empContStartDate = $rd['empContStartDate'][0];
                             (empty($rd['empContEndDate'][0])) ? $empContEndDate = '' : $empContEndDate = $rd['empContEndDate'][0];
-                            (empty($rd['empJobTitle'][0])) ? $empJobTitle = '' : $empJobTitle = $rd['empJobTitle'][0];
+                            (empty($rd['empJobTitle'][0])) ? $empJobTitle = '' : $empJobTitle = $rd['empJobTitle'];
                             (empty($rd['empEmploymentStatus'][0])) ? $empEmploymentStatus = '' : $empEmploymentStatus = $rd['empEmploymentStatus'][0];
                             (empty($rd['classification'][0])) ? $classification = '' : $classification = $rd['classification'];
                             (empty($rd['empJobCategory'][0])) ? $empJobCategory = '' : $empJobCategory = $rd['empJobCategory'][0];
                             (empty($rd['empJoinedDate'][0])) ? $empJoinedDate = '' : $empJoinedDate = $rd['empJoinedDate'][0];
-                            (empty($rd['empSubUnit'][0])) ? $empSubUnit = '' : $empSubUnit = $rd['empSubUnit'][0];
+                            (empty($rd['empSubUnit'][0])) ? $empSubUnit = '' : $empSubUnit = $rd['empSubUnit'];
                             (empty($rd['empLocation'][0])) ? $empLocation = '' : $empLocation = $rd['empLocation'][0];
                             
                             //immigration
@@ -391,7 +391,7 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('BN'.$i, $empJobCategory)
                             ->setCellValue('BO'.$i, $empJoinedDate)
                             ->setCellValue('BP'.$i, $empSubUnit)
-                            ->setCellValue('BQ'.$i, $empLocation)
+                            ->setCellValue('BQ'.$i, $empLocation);
 
                             //immigration
                             // ->setCellValue('BR'.$i, $empPassportNo)
@@ -497,7 +497,7 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('BN2', 'Job Category')
                             ->setCellValue('BO2', 'Joined Date')
                             ->setCellValue('BP2', 'Sub Unit')
-                            ->setCellValue('BQ2', 'Location')
+                            ->setCellValue('BQ2', 'Location');
                             
                             //immigration
                             // ->setCellValue('BR2', 'Number')

@@ -519,6 +519,10 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'type' => 'string',
              'length' => 20,
              ));
+        $this->hasColumn('appointment', 'string', 20, array(
+             'type' => 'string',
+             'length' => 20,
+             ));
     }
 
     public function setUp()

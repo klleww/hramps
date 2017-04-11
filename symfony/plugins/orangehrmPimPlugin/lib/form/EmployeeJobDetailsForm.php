@@ -63,6 +63,9 @@ class EmployeeJobDetailsForm extends BaseForm {
             'emp_status' => new sfWidgetFormSelect(array('choices' => $employeeStatuses)), // employement status
             'classification' => new sfWidgetFormSelect(array('choices' => 
                 array('' => "-- " . __('Select') . " --", 'Faculty' => __('Faculty'), 'Staff' => __('Staff')))),
+            'appointment' => new sfWidgetFormSelect(array('choices' => 
+                array('' => "-- " . __('Select') . " --", 'Original' => __('Original'), 'Initial' => __('Initial'),
+                    'Reemployment' => __('Reemployment'), 'Reinstatement' => __('Reinstatement')))),
             'terminated_date' => new ohrmWidgetDatePicker(array(), array('id' => 'job_terminated_date')),
             'termination_reason' => new sfWidgetFormTextarea(),
             'eeo_category' => new sfWidgetFormSelect(array('choices' => $eeoCategories)),
@@ -79,6 +82,7 @@ class EmployeeJobDetailsForm extends BaseForm {
         $this->setDefault('emp_number', $empNumber);
         $this->setDefault('emp_status', $employee->emp_status);
         $this->setDefault('classification', $employee->classification);
+        $this->setDefault('appointment', $employee->appointment);
 
         if (!empty($jobTitleId)) {
             $this->setDefault('job_title', $jobTitleId);
@@ -122,6 +126,7 @@ class EmployeeJobDetailsForm extends BaseForm {
             'job_title' => new sfValidatorChoice(array('required' => false, 'choices' => array_keys($jobTitles))),
             'emp_status' => new sfValidatorString(array('required' => false)),
             'classification' => new sfValidatorString(array('required' => false)),
+            'appointment' => new sfValidatorString(array('required' => false)),
             'terminated_date' => new ohrmDateValidator(
                     array('date_format' => $inputDatePattern, 'required' => false),
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
@@ -196,6 +201,7 @@ class EmployeeJobDetailsForm extends BaseForm {
         }
         $employee->work_station = $this->getValue('sub_unit');
         $employee->classification = $this->getValue('classification');
+        $employee->appointment = $this->getValue('appointment');
         $employee->joined_date = $this->getValue('joined_date');
         
         if( $joinedDate != '' && $joinedDate != $this->getValue('joined_date')){

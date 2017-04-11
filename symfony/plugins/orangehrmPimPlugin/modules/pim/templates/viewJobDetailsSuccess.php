@@ -72,6 +72,10 @@
                             <?php echo $form['classification']->render(array("class" => "formSelect")); ?>
                         </li>
                         <li>
+                            <?php echo $form['appointment']->renderLabel(__('Appointment')); ?>
+                            <?php echo $form['appointment']->render(array("class" => "formSelect")); ?>
+                        </li>
+                        <li>
                             <?php echo $form['eeo_category']->renderLabel(__('Job Category')); ?>
                             <?php echo $form['eeo_category']->render(array("class" => "formSelect")); ?>
                         </li>
@@ -351,7 +355,7 @@
         <?php } ?>
         
         var list = new Array(
-        '#job_job_title', '#job_emp_status', '#job_terminated_date', '#job_classification',
+        '#job_job_title', '#job_emp_status', '#job_terminated_date', '#job_classification','#job_appointment',
         '.calendarBtn', '#job_termination_reason', '#job_eeo_category',
         '#job_joined_date', '#job_sub_unit', '#job_location',
         '#contract_file', 'ul.radio_list input',

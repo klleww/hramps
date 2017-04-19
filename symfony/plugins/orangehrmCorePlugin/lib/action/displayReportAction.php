@@ -215,80 +215,81 @@ abstract class displayReportAction extends basePimReportAction {
                             (empty($rd['otherEmail'])) ? $otherEmail = '' : $otherEmail = $rd['otherEmail'];
                             
                           //emergency contact
-                            (empty($rd['ecname'][0])) ? $ecname = '' : $ecname = $rd['ecname'][0];
-                            (empty($rd['ecHomeTelephone'][0])) ? $ecHomeTelephone = '' : $ecHomeTelephone = $rd['ecHomeTelephone'][0];
-                            (empty($rd['ecWorkTelephone'][0])) ? $ecWorkTelephone = '' : $ecWorkTelephone = $rd['ecWorkTelephone'][0];
-                            (empty($rd['ecRelationship'][0])) ? $ecRelationship = '' : $ecRelationship = $rd['ecRelationship'][0];
-                            (empty($rd['ecMobile'][0])) ? $ecMobile = '' : $ecMobile = $rd['ecMobile'][0];
+                            (empty($rd['ecname'][0])) ? $ecname = '' : $ecname = $rd['ecname'];
+                            (empty($rd['ecHomeTelephone'][0])) ? $ecHomeTelephone = '' : $ecHomeTelephone = $rd['ecHomeTelephone'];
+                            (empty($rd['ecWorkTelephone'][0])) ? $ecWorkTelephone = '' : $ecWorkTelephone = $rd['ecWorkTelephone'];
+                            (empty($rd['ecRelationship'][0])) ? $ecRelationship = '' : $ecRelationship = $rd['ecRelationship'];
+                            (empty($rd['ecMobile'][0])) ? $ecMobile = '' : $ecMobile = $rd['ecMobile'];
                             
                             //dependent
-                            (empty($rd['dependentName'][0])) ? $dependentName = '' : $dependentName = $rd['dependentName'][0];
-                            (empty($rd['dependentRelationship'][0])) ? $dependentRelationship = '' : $dependentRelationship = $rd['dependentRelationship'][0];
-                            (empty($rd['dependentDateofBirth'][0])) ? $dependentDateofBirth = '' : $dependentDateofBirth = $rd['dependentDateofBirth'][0];
+                            (empty($rd['dependentName'][0])) ? $dependentName = '' : $dependentName = $rd['dependentName'];
+                            (empty($rd['dependentRelationship'][0])) ? $dependentRelationship = '' : $dependentRelationship = $rd['dependentRelationship'];
+                            (empty($rd['dependentDateofBirth'][0])) ? $dependentDateofBirth = '' : $dependentDateofBirth = $rd['dependentDateofBirth'];
                             
                             //membership
-                            (empty($rd['edSeqNo'][0])) ? $edSeqNo = '' : $edSeqNo = $rd['edSeqNo'][0];
-                            (empty($rd['subscriptionPaidBy'][0])) ? $subscriptionPaidBy = '' : $subscriptionPaidBy = $rd['subscriptionPaidBy'][0];
-                            (empty($rd['subscriptionAmount'][0])) ? $subscriptionAmount = '' : $subscriptionAmount = $rd['subscriptionAmount'][0];
-                            (empty($rd['membershipCurrency'][0])) ? $membershipCurrency = '' : $membershipCurrency = $rd['membershipCurrency'][0];
-                            (empty($rd['subscriptionCommenceDate'][0])) ? $subscriptionCommenceDate = '' : $subscriptionCommenceDate = $rd['subscriptionCommenceDate'][0];
-                            (empty($rd['subscriptionRenewalDate'][0])) ? $subscriptionRenewalDate = '' : $subscriptionRenewalDate = $rd['subscriptionRenewalDate'][0];
+                            (empty($rd['edSeqNo'][0])) ? $edSeqNo = '' : $edSeqNo = $rd['edSeqNo'];
+                            (empty($rd['subscriptionPaidBy'][0])) ? $subscriptionPaidBy = '' : $subscriptionPaidBy = $rd['subscriptionPaidBy'];
+                            (empty($rd['subscriptionAmount'][0])) ? $subscriptionAmount = '' : $subscriptionAmount = $rd['subscriptionAmount'];
+                            (empty($rd['membershipCurrency'][0])) ? $membershipCurrency = '' : $membershipCurrency = $rd['membershipCurrency'];
+                            (empty($rd['subscriptionCommenceDate'][0])) ? $subscriptionCommenceDate = '' : $subscriptionCommenceDate = $rd['subscriptionCommenceDate'];
+                            (empty($rd['subscriptionRenewalDate'][0])) ? $subscriptionRenewalDate = '' : $subscriptionRenewalDate = $rd['subscriptionRenewalDate'];
                             
                             //work experience
-                            (empty($rd['expCompany'][0])) ? $expCompany = '' : $expCompany = $rd['expCompany'][0];
-                            (empty($rd['expJobTitle'][0])) ? $expJobTitle = '' : $expJobTitle = $rd['expJobTitle'][0];
-                            (empty($rd['expFrom'][0])) ? $expFrom = '' : $expFrom = $rd['expFrom'][0];
-                            (empty($rd['expTo'][0])) ? $expTo = '' : $expTo = $rd['expTo'][0];
-                            (empty($rd['expComment'][0])) ? $expComment = '' : $expComment = $rd['expComment'][0];
+                            (empty($rd['expCompany'][0])) ? $expCompany = '' : $expCompany = $rd['expCompany'];
+                            (empty($rd['expJobTitle'][0])) ? $expJobTitle = '' : $expJobTitle = $rd['expJobTitle'];
+                            (empty($rd['expFrom'][0])) ? $expFrom = '' : $expFrom = $rd['expFrom'];
+                            (empty($rd['expTo'][0])) ? $expTo = '' : $expTo = $rd['expTo'];
+                            (empty($rd['expComment'][0])) ? $expComment = '' : $expComment = $rd['expComment'];
                             
                             //skill
-                            (empty($rd['skill'][0])) ? $skill = '' : $skill = $rd['skill'][0];
-                            (empty($rd['skillYearsOfExperience'][0])) ? $skillYearsOfExperience = '' : $skillYearsOfExperience = $rd['skillYearsOfExperience'][0];
-                            (empty($rd['skillComments'][0])) ? $skillComments = '' : $skillComments = $rd['skillComments'][0];
+                            (empty($rd['skill'][0])) ? $skill = '' : $skill = $rd['skill'];
+                            (empty($rd['skillYearsOfExperience'][0])) ? $skillYearsOfExperience = '' : $skillYearsOfExperience = $rd['skillYearsOfExperience'];
+                            (empty($rd['skillComments'][0])) ? $skillComments = '' : $skillComments = $rd['skillComments'];
                             
                             //language
-                            (empty($rd['langName'][0])) ? $langName = '' : $langName = $rd['langName'][0];
-                            (empty($rd['langCompetency'][0])) ? $langCompetency = '' : $langCompetency = $rd['langCompetency'][0];
-                            (empty($rd['langComments'][0])) ? $langComments = '' : $langComments = $rd['langComments'][0];
-                            (empty($rd['langFluency'][0])) ? $langFluency = '' : $langFluency = $rd['langFluency'][0];
+                            (empty($rd['langName'][0])) ? $langName = '' : $langName = $rd['langName'];
+                            (empty($rd['langCompetency'][0])) ? $langCompetency = '' : $langCompetency = $rd['langCompetency'];
+                            (empty($rd['langComments'][0])) ? $langComments = '' : $langComments = $rd['langComments'];
+                            (empty($rd['langFluency'][0])) ? $langFluency = '' : $langFluency = $rd['langFluency'];
                             
                             //license
-                            (empty($rd['empLicenseType'][0])) ? $empLicenseType = '' : $empLicenseType = $rd['empLicenseType'][0];
-                            (empty($rd['empLicenseIssuedDate'][0])) ? $empLicenseIssuedDate = '' : $empLicenseIssuedDate = $rd['empLicenseIssuedDate'][0];
-                            (empty($rd['empLicenseExpiryDate'][0])) ? $empLicenseExpiryDate = '' : $empLicenseExpiryDate = $rd['empLicenseExpiryDate'][0];
+                            (empty($rd['empLicenseType'][0])) ? $empLicenseType = '' : $empLicenseType = $rd['empLicenseType'];
+                            (empty($rd['empLicenseIssuedDate'][0])) ? $empLicenseIssuedDate = '' : $empLicenseIssuedDate = $rd['empLicenseIssuedDate'];
+                            (empty($rd['empLicenseExpiryDate'][0])) ? $empLicenseExpiryDate = '' : $empLicenseExpiryDate = $rd['empLicenseExpiryDate'];
                             
                             //supervisor
-                            (empty($rd['supervisorFirstName'][0])) ? $supervisorFirstName = '' : $supervisorFirstName = $rd['supervisorFirstName'][0];
-                            (empty($rd['supervisorLastName'][0])) ? $supervisorLastName = '' : $supervisorLastName = $rd['supervisorLastName'][0];
-                            (empty($rd['supReportingMethod'][0])) ? $supReportingMethod = '' : $supReportingMethod = $rd['supReportingMethod'][0];
+                            (empty($rd['supervisorFirstName'][0])) ? $supervisorFirstName = '' : $supervisorFirstName = $rd['supervisorFirstName'];
+                            (empty($rd['supervisorLastName'][0])) ? $supervisorLastName = '' : $supervisorLastName = $rd['supervisorLastName'];
+                            (empty($rd['supReportingMethod'][0])) ? $supReportingMethod = '' : $supReportingMethod = $rd['supReportingMethod'];
                             
                             //subordinate
-                            (empty($rd['subordinateFirstName'][0])) ? $subordinateFirstName = '' : $subordinateFirstName = $rd['subordinateFirstName'][0];
-                            (empty($rd['subordinateLastName'][0])) ? $subordinateLastName = '' : $subordinateLastName = $rd['subordinateLastName'][0];
-                            (empty($rd['subReportingMethod'][0])) ? $subReportingMethod = '' : $subReportingMethod = $rd['subReportingMethod'][0];
+                            (empty($rd['subordinateFirstName'][0])) ? $subordinateFirstName = '' : $subordinateFirstName = $rd['subordinateFirstName'];
+                            (empty($rd['subordinateLastName'][0])) ? $subordinateLastName = '' : $subordinateLastName = $rd['subordinateLastName'];
+                            (empty($rd['subReportingMethod'][0])) ? $subReportingMethod = '' : $subReportingMethod = $rd['subReportingMethod'];
                             
                             //salary
-                            (empty($rd['salPayGrade'][0])) ? $salPayGrade = '' : $salPayGrade = $rd['salPayGrade'][0];
-                            (empty($rd['salSalaryComponent'][0])) ? $salSalaryComponent = '' : $salSalaryComponent = $rd['salSalaryComponent'][0];
-                            (empty($rd['salAmount'][0])) ? $salAmount = '' : $salAmount = $rd['salAmount'][0];
-                            (empty($rd['salComments'][0])) ? $salComments = '' : $salComments = $rd['salComments'][0];
-                            (empty($rd['salPayFrequency'][0])) ? $salPayFrequency = '' : $salPayFrequency = $rd['salPayFrequency'][0];
-                            (empty($rd['salCurrency'][0])) ? $salCurrency = '' : $salCurrency = $rd['salCurrency'][0];
+                            (empty($rd['salPayGrade'][0])) ? $salPayGrade = '' : $salPayGrade = $rd['salPayGrade'];
+                            (empty($rd['salSalaryComponent'][0])) ? $salSalaryComponent = '' : $salSalaryComponent = $rd['salSalaryComponent'];
+                            (empty($rd['salAmount'][0])) ? $salAmount = '' : $salAmount = $rd['salAmount'];
+                            (empty($rd['salComments'][0])) ? $salComments = '' : $salComments = $rd['salComments'];
+                            (empty($rd['salPayFrequency'][0])) ? $salPayFrequency = '' : $salPayFrequency = $rd['salPayFrequency'];
+                            (empty($rd['salCurrency'][0])) ? $salCurrency = '' : $salCurrency = $rd['salCurrency'];
                             // (empty($rd['ddAccountNumber'][0])) ? $ddAccountNumber = '' : $ddAccountNumber = $rd['ddAccountNumber'][0];
                             // (empty($rd['ddAccountType'][0])) ? $ddAccountType = '' : $ddAccountType = $rd['ddAccountType'][0];
                             // (empty($rd['ddRoutingNumber'][0])) ? $ddRoutingNumber = '' : $ddRoutingNumber = $rd['ddRoutingNumber'][0];
                             // (empty($rd['ddAmount'][0])) ? $ddAmount = '' : $ddAmount = $rd['ddAmount'][0];
                             
                             //job
-                            (empty($rd['empContStartDate'][0])) ? $empContStartDate = '' : $empContStartDate = $rd['empContStartDate'][0];
-                            (empty($rd['empContEndDate'][0])) ? $empContEndDate = '' : $empContEndDate = $rd['empContEndDate'][0];
+                            (empty($rd['empContStartDate'][0])) ? $empContStartDate = '' : $empContStartDate = $rd['empContStartDate'];
+                            (empty($rd['empContEndDate'][0])) ? $empContEndDate = '' : $empContEndDate = $rd['empContEndDate'];
                             (empty($rd['empJobTitle'][0])) ? $empJobTitle = '' : $empJobTitle = $rd['empJobTitle'];
-                            (empty($rd['empEmploymentStatus'][0])) ? $empEmploymentStatus = '' : $empEmploymentStatus = $rd['empEmploymentStatus'][0];
+                            (empty($rd['empEmploymentStatus'][0])) ? $empEmploymentStatus = '' : $empEmploymentStatus = $rd['empEmploymentStatus'];
                             (empty($rd['classification'][0])) ? $classification = '' : $classification = $rd['classification'];
-                            (empty($rd['empJobCategory'][0])) ? $empJobCategory = '' : $empJobCategory = $rd['empJobCategory'][0];
-                            (empty($rd['empJoinedDate'][0])) ? $empJoinedDate = '' : $empJoinedDate = $rd['empJoinedDate'][0];
+                            (empty($rd['appointment'][0])) ? $appointment = '' : $appointment = $rd['appointment'];
+                            (empty($rd['empJobCategory'][0])) ? $empJobCategory = '' : $empJobCategory = $rd['empJobCategory'];
+                            (empty($rd['empJoinedDate'][0])) ? $empJoinedDate = '' : $empJoinedDate = $rd['empJoinedDate'];
                             (empty($rd['empSubUnit'][0])) ? $empSubUnit = '' : $empSubUnit = $rd['empSubUnit'];
-                            (empty($rd['empLocation'][0])) ? $empLocation = '' : $empLocation = $rd['empLocation'][0];
+                            (empty($rd['empLocation'][0])) ? $empLocation = '' : $empLocation = $rd['empLocation'];
                             
                             //immigration
                             // (empty($rd['empPassportNo'][0])) ? $empPassportNo = '' : $empPassportNo = $rd['empPassportNo'][0];
@@ -388,10 +389,11 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('BK'.$i, $empJobTitle)
                             ->setCellValue('BL'.$i, $empEmploymentStatus)
                             ->setCellValue('BM'.$i, $classification)
-                            ->setCellValue('BN'.$i, $empJobCategory)
-                            ->setCellValue('BO'.$i, $empJoinedDate)
-                            ->setCellValue('BP'.$i, $empSubUnit)
-                            ->setCellValue('BQ'.$i, $empLocation);
+                            ->setCellValue('BN'.$i, $appointment)
+                            ->setCellValue('BO'.$i, $empJobCategory)
+                            ->setCellValue('BP'.$i, $empJoinedDate)
+                            ->setCellValue('BQ'.$i, $empSubUnit)
+                            ->setCellValue('BR'.$i, $empLocation);
 
                             //immigration
                             // ->setCellValue('BR'.$i, $empPassportNo)
@@ -494,10 +496,11 @@ abstract class displayReportAction extends basePimReportAction {
                             ->setCellValue('BK2', 'Job Title')
                             ->setCellValue('BL2', 'Employment Status')
                             ->setCellValue('BM2', 'Employment Classification')
-                            ->setCellValue('BN2', 'Job Category')
-                            ->setCellValue('BO2', 'Joined Date')
-                            ->setCellValue('BP2', 'Sub Unit')
-                            ->setCellValue('BQ2', 'Location');
+                            ->setCellValue('BN2', 'Appointment')
+                            ->setCellValue('BO2', 'Job Category')
+                            ->setCellValue('BP2', 'Joined Date')
+                            ->setCellValue('BQ2', 'Sub Unit')
+                            ->setCellValue('BR2', 'Location');
                             
                             //immigration
                             // ->setCellValue('BR2', 'Number')

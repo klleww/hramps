@@ -110,11 +110,11 @@ class EmployeeMembershipForm extends BaseForm {
         $widgets = array();
         $widgets['membership'] = new sfWidgetFormSelect(array('choices' => $memberships));
         $widgets['membershipno'] = new sfWidgetFormInputText();
-        $widgets['subscriptionPaidBy'] = new sfWidgetFormSelect(array('choices' => $subscriptionPaidBy));
-        $widgets['subscriptionAmount'] = new sfWidgetFormInputText();
-        $widgets['currency'] = new sfWidgetFormSelect(array('choices' => $currency));
+        // $widgets['subscriptionPaidBy'] = new sfWidgetFormSelect(array('choices' => $subscriptionPaidBy));
+        // $widgets['subscriptionAmount'] = new sfWidgetFormInputText();
+        // $widgets['currency'] = new sfWidgetFormSelect(array('choices' => $currency));
         $widgets['subscriptionCommenceDate'] = new ohrmWidgetDatePicker(array(), array('id' => 'membership_subscriptionCommenceDate'));
-        $widgets['subscriptionRenewalDate'] = new ohrmWidgetDatePicker(array(), array('id' => 'membership_subscriptionRenewalDate'));
+        // $widgets['subscriptionRenewalDate'] = new ohrmWidgetDatePicker(array(), array('id' => 'membership_subscriptionRenewalDate'));
         return $widgets;
     }
     
@@ -129,13 +129,13 @@ class EmployeeMembershipForm extends BaseForm {
         $validators = array(
             'membership' => new sfValidatorChoice(array('required' => true, 'choices' => array_keys($memberships))),
             'membershipno' => new sfValidatorString(array('required' => false)),
-            'subscriptionPaidBy' => new sfValidatorString(array('required' => false)),
-            'subscriptionAmount' => new sfValidatorNumber(array('required' => false)),
-            'currency' => new sfValidatorString(array('required' => false)),
+            // 'subscriptionPaidBy' => new sfValidatorString(array('required' => false)),
+            // 'subscriptionAmount' => new sfValidatorNumber(array('required' => false)),
+            // 'currency' => new sfValidatorString(array('required' => false)),
             'subscriptionCommenceDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false),
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
-            'subscriptionRenewalDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false),
-                    array('invalid' => 'Date format should be ' . $inputDatePattern)),
+            // 'subscriptionRenewalDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false),
+            //         array('invalid' => 'Date format should be ' . $inputDatePattern)),
         );
         return $validators;
     }
@@ -196,12 +196,12 @@ class EmployeeMembershipForm extends BaseForm {
 
         if ($allowed) {
             $membershipDetail->membershipno = $this ->getValue('membershipno');
-            $membershipDetail->subscriptionPaidBy = $this->getValue('subscriptionPaidBy');
-            $membershipDetail->subscriptionFee = $this->getValue('subscriptionAmount');
-            $membershipDetail->subscriptionCurrency = $this->getValue('currency');
+            // $membershipDetail->subscriptionPaidBy = $this->getValue('subscriptionPaidBy');
+            // $membershipDetail->subscriptionFee = $this->getValue('subscriptionAmount');
+            // $membershipDetail->subscriptionCurrency = $this->getValue('currency');
 
             $membershipDetail->subscriptionCommenceDate = $this->getValue('subscriptionCommenceDate');
-            $membershipDetail->subscriptionRenewalDate = $this->getValue('subscriptionRenewalDate');
+            // $membershipDetail->subscriptionRenewalDate = $this->getValue('subscriptionRenewalDate');
 
             $membershipDetail->save();
         }

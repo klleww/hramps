@@ -66,26 +66,12 @@ $allowEdit = true;
                                 <?php echo $form['membershipno']->renderLabel(__('Membership Number') . ' <em>*</em>'); ?>
                                 <?php echo $form['membershipno']->render(array("class" => "formInputM", "maxlength" => 50)); ?>
                             </li>
-                          <!--   <li>
-                                <?php echo $form['subscriptionPaidBy']->renderLabel(__('Subscription Paid By')); ?>
-                                <?php echo $form['subscriptionPaidBy']->render(array("class" => "drpDown", "maxlength" => 50)); ?>
-                            </li> -->
-                            <!-- <li>
-                                <?php echo $form['subscriptionAmount']->renderLabel(__('Subscription Amount')); ?>
-                                <?php echo $form['subscriptionAmount']->render(array("class" => "formInputM", "maxlength" => 13)); ?>
-                            </li> -->
-                       <!--   <li>
-                                <?php echo $form['currency']->renderLabel(__('Currency')); ?>
-                                <?php echo $form['currency']->render(array("class" => "drpDown", "maxlength" => 50)); ?>
-                            </li> -->
+                          
                             <li>
                                 <?php echo $form['subscriptionCommenceDate']->renderLabel(__('Date Issued')); ?>
                                 <?php echo $form['subscriptionCommenceDate']->render(array("class" => "formDateInput")); ?>
                             </li>
-                           <!--  <li>
-                                <?php echo $form['subscriptionRenewalDate']->renderLabel(__('Subscription Renewal Date')); ?>
-                                <?php echo $form['subscriptionRenewalDate']->render(array("class" => "formDateInput")); ?>
-                            </li> -->
+                           
                             <li class="required">
                                 <em>*</em> <?php echo __(CommonMessages::REQUIRED_FIELD); ?>
                             </li>

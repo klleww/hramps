@@ -65,7 +65,7 @@ class EmployeeJobDetailsForm extends BaseForm {
                 array('' => "-- " . __('Select') . " --", 'Faculty' => __('Faculty'), 'Staff' => __('Staff')))),
             'appointment' => new sfWidgetFormSelect(array('choices' => 
                 array('' => "-- " . __('Select') . " --", 'Original' => __('Original'), 'Initial' => __('Initial'),
-                    'Reemployment' => __('Reemployment'), 'Reinstatement' => __('Reinstatement')))),
+                                'Promotion' => __('Promotion'),'Reemployment' => __('Reemployment'), 'Reinstatement' => __('Reinstatement')))),
             'terminated_date' => new ohrmWidgetDatePicker(array(), array('id' => 'job_terminated_date')),
             'termination_reason' => new sfWidgetFormTextarea(),
             'eeo_category' => new sfWidgetFormSelect(array('choices' => $eeoCategories)),

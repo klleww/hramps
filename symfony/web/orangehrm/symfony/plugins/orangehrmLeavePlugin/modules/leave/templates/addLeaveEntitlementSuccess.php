@@ -65,7 +65,7 @@ use_stylesheets_for_form($form);
 <div class="modal hide" id="noselection">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo 'OrangeHRM - ' . __('No matching employees'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('No matching employees'); ?></h3>
   </div>
   <div class="modal-body">
     <p><?php echo __('No employees match the selected filters'); ?></p>
@@ -78,7 +78,7 @@ use_stylesheets_for_form($form);
 <div class="modal hide" id="preview" style="width:500px">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo 'OrangeHRM - ' . __('Matching Employees'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Matching Employees'); ?></h3>
   </div>
   <div class="modal-body">
       <span><?php echo __('The selected leave entitlement will be applied to the following employees.');?></span>
@@ -98,7 +98,7 @@ use_stylesheets_for_form($form);
 <div class="modal hide" id="employeeEntitlement" style="width:500px">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo 'OrangeHRM - ' . __('Updating Entitlement'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Updating Entitlement'); ?></h3>
   </div>
   <div class="modal-body">
       
@@ -115,7 +115,7 @@ use_stylesheets_for_form($form);
 <!-- Confirmation box for employee entitlement-->
 <div class="modal hide" id="bulkAssignWaitDlg" style="width:500px">
   <div class="modal-header">
-    <h3><?php echo 'OrangeHRM - ' . __('Updating Entitlement'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Updating Entitlement'); ?></h3>
   </div>
   <div class="modal-body">
       <p id="buildAssignWait" class="loading_message"></p>
@@ -139,7 +139,7 @@ use_stylesheets_for_form($form);
     var lang_matchesNone = '<?php echo __('No matching employees');?>';
     var lang_required = '<?php echo __(ValidationMessages::REQUIRED); ?>';
     var lang_invalid = '<?php echo __(ValidationMessages::INVALID); ?>';
-    var lang_number = '<?php echo __("Should be a number with upto %count% decimal places", array('%count%' => 2)); ?>';
+    var lang_number = '<?php echo __("Should be a number with upto %count% decimal places", array('%count%' => 3)); ?>';
     var lang_valid_entitlement = '<?php echo __("Used amount exceeds the current amount"); ?>';
     var validEntitlemnetUrl =  '<?php echo url_for('leave/isValidEntitlemnetAjax');?>';
     var lang_Loading = '<?php echo __('Loading');?>';

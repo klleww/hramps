@@ -99,7 +99,7 @@
                         var oldValue = parseFloat(data[i][1]);
                         var newValue = parseFloat(data[i][2]);
                         
-                        html = html + '<tr class="' + css + '"><td>'+decodedName+'</td><td>'+oldValue.toFixed(2)+'</td><td>'+newValue.toFixed(2)+'</td></tr>';
+                        html = html + '<tr class="' + css + '"><td>'+decodedName+'</td><td>'+oldValue.toFixed(3)+'</td><td>'+newValue.toFixed(3)+'</td></tr>';
                     }
 
                     $('div#employee_list table.table').append(html);
@@ -179,7 +179,7 @@
                                         var newValue = parseFloat(data[1]);
                         
                                         $('ol#employee_entitlement_update').html(''); 
-                                        var html = '<span>Existing Entitlement value '+ oldValue.toFixed(2)+' will be updated to '+ newValue.toFixed(2) +'</span>'
+                                        var html = '<span>Existing Entitlement value '+ oldValue.toFixed(3)+' will be updated to '+ newValue.toFixed(3) +'</span>'
                                         $('ol#employee_entitlement_update').append(html);
                                         $('#employeeEntitlement').modal();
                                     }else{
@@ -243,7 +243,7 @@
         
         var isValid = false;
 
-        var match = value.match(/^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$/);
+        var match = value.match(/^[+-]?[0-9]{1,9}(?:\.[0-9]{1,3})?$/);
         if(match) {
             isValid = true;
         }
@@ -251,7 +251,7 @@
             isValid = true;
         }
         return isValid;
-    });        
+    }); 
     
     $.validator.addMethod("checkEmployeeNameNotChanged", function(value, element, params) {
         

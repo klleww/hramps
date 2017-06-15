@@ -170,25 +170,25 @@ $(document).ready(function() {
                     validWorkShift : lang_DurationShouldBeLessThanWorkshift,
                     validToTime: lang_FromTimeLessThanToTime
                 },
-                'assignleave[duration][time][to]':{
-                    validTotalTime : lang_Required
-                },
-                'assignleave[firstDuration][time][from]':{
-                    validTotalTime : lang_Required,
-                    validWorkShift : lang_DurationShouldBeLessThanWorkshift,
-                    validToTime: lang_FromTimeLessThanToTime
-                },
-                'assignleave[firstDuration][time][to]':{
-                    validTotalTime : lang_Required
-                },
-                'assignleave[secondDuration][time][from]':{
-                    validTotalTime : lang_Required,
-                    validWorkShift : lang_DurationShouldBeLessThanWorkshift,
-                    validToTime: lang_FromTimeLessThanToTime
-                },
-                'assignleave[secondDuration][time][to]':{
-                    validTotalTime : lang_Required
-                }
+                // 'assignleave[duration][time][to]':{
+                //     validTotalTime : lang_Required
+                // },
+                // 'assignleave[firstDuration][time][from]':{
+                //     validTotalTime : lang_Required,
+                //     validWorkShift : lang_DurationShouldBeLessThanWorkshift,
+                //     validToTime: lang_FromTimeLessThanToTime
+                // },
+                // 'assignleave[firstDuration][time][to]':{
+                //     validTotalTime : lang_Required
+                // },
+                // 'assignleave[secondDuration][time][from]':{
+                //     validTotalTime : lang_Required,
+                //     validWorkShift : lang_DurationShouldBeLessThanWorkshift,
+                //     validToTime: lang_FromTimeLessThanToTime
+                // },
+                // 'assignleave[secondDuration][time][to]':{
+                //     validTotalTime : lang_Required
+                // }
             },
             submitHandler: function(form) {
                 var showConfirm = false;

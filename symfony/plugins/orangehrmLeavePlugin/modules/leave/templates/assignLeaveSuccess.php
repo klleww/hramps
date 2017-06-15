@@ -38,7 +38,7 @@ use_stylesheet(plugin_web_path('orangehrmLeavePlugin', 'css/assignLeaveSuccess.c
 <div class="modal hide" id="balance_details">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo 'OrangeHRM - ' . __('Leave Balance Details'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Leave Balance Details'); ?></h3>
   </div>
   <div class="modal-body">
       <dl class="search-params">
@@ -89,7 +89,7 @@ use_stylesheet(plugin_web_path('orangehrmLeavePlugin', 'css/assignLeaveSuccess.c
 <div class="modal hide" id="multiperiod_balance">
   <div class="modal-header">
     <a class="close" data-dismiss="modal">×</a>
-    <h3><?php echo 'OrangeHRM - ' . __('Leave Balance Details'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Leave Balance Details'); ?></h3>
   </div>
   <div class="modal-body">
       <dl class="search-params">
@@ -122,7 +122,7 @@ use_stylesheet(plugin_web_path('orangehrmLeavePlugin', 'css/assignLeaveSuccess.c
 <!-- Confirmation box for leave balance update -->
 <div class="modal hide" id="leaveBalanceConfirm" style="width:500px">
   <div class="modal-header">
-    <h3><?php echo 'OrangeHRM - ' . __('Confirm Leave Assignment'); ?></h3>
+    <h3><?php echo 'HRAMPS - ' . __('Confirm Leave Assignment'); ?></h3>
   </div>
   <div class="modal-body">
       <p><?php echo __('Employee does not have sufficient leave balance for leave request.');?></p>
@@ -158,9 +158,9 @@ use_stylesheet(plugin_web_path('orangehrmLeavePlugin', 'css/assignLeaveSuccess.c
     var lang_DurationShouldBeLessThanWorkshift = "<?php echo __('Duration should be less than work shift length'); ?>";
     var lang_validEmployee = "<?php echo __(ValidationMessages::INVALID); ?>";
     var lang_BalanceNotSufficient = "<?php echo __("Balance not sufficient");?>";
-    var lang_Duration = "<?php echo __('Duration');?>";
-    var lang_StartDay = "<?php echo __('Start Day');?>";
-    var lang_EndDay = "<?php echo __('End Day');?>";
+    // var lang_Duration = "<?php echo __('Duration');?>";
+    // var lang_StartDay = "<?php echo __('Start Day');?>";
+    // var lang_EndDay = "<?php echo __('End Day');?>";
 //]]>    
 </script>    
     

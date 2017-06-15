@@ -1,25 +1,5 @@
 <?php
 
-/*
- *
- * OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
- * all the essential functionalities required for any enterprise.
- * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
- *
- * OrangeHRM is free software; you can redistribute it and/or modify it under the terms of
- * the GNU General Public License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along with this program;
- * if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA  02110-1301, USA
- *
- */
-
 /**
  * Assign Leave form class
  */
@@ -275,9 +255,9 @@ class AssignLeaveForm extends sfForm {
             'txtFromDate' => new ohrmWidgetDatePicker(array(), array('id' => 'assignleave_txtFromDate')),
             'txtToDate' => new ohrmWidgetDatePicker(array(), array('id' => 'assignleave_txtToDate')),
             'duration' => new ohrmWidgetFormLeaveDuration(),
-            'partialDays' => new sfWidgetFormChoice(array('choices' => $partialDayChoices)),
-            'firstDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
-            'secondDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
+            // 'partialDays' => new sfWidgetFormChoice(array('choices' => $partialDayChoices)),
+            // 'firstDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
+            // 'secondDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
             'txtComment' => new sfWidgetFormTextarea(array(), array('rows' => '3', 'cols' => '30')),
         );
 
@@ -302,9 +282,9 @@ class AssignLeaveForm extends sfForm {
             'txtToDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => true),
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
             'duration' => new sfValidatorPass(),
-            'partialDays' => new sfValidatorPass(),
-            'firstDuration' => new sfValidatorPass(),
-            'secondDuration' => new sfValidatorPass(),            
+            // 'partialDays' => new sfValidatorPass(),
+            // 'firstDuration' => new sfValidatorPass(),
+            // 'secondDuration' => new sfValidatorPass(),            
             'txtComment' => new sfValidatorString(array('required' => false, 'trim' => true, 'max_length' => 1000))
         );
 
@@ -325,9 +305,9 @@ class AssignLeaveForm extends sfForm {
             'txtFromDate' => __('From Date') . $requiredMarker,
             'txtToDate' => __('To Date') . $requiredMarker,
             'duration' => __('Duration'),
-            'partialDays' => __('Partial Days'),
-            'firstDuration' => __('Duration'),
-            'secondDuration' => __('Duration'),
+            // 'partialDays' => __('Partial Days'),
+            // 'firstDuration' => __('Duration'),
+            // 'secondDuration' => __('Duration'),
             'txtComment' => __('Comment'),
         );
 

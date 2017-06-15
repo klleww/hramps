@@ -1,25 +1,5 @@
 <?php
 
-/*
- *
- * OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
- * all the essential functionalities required for any enterprise.
- * Copyright (C) 2006 OrangeHRM Inc., http://www.orangehrm.com
- *
- * OrangeHRM is free software; you can redistribute it and/or modify it under the terms of
- * the GNU General Public License as published by the Free Software Foundation; either
- * version 2 of the License, or (at your option) any later version.
- *
- * OrangeHRM is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License along with this program;
- * if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
- * Boston, MA  02110-1301, USA
- *
- */
-
 /**
  * Form class for apply leave
  */
@@ -104,13 +84,13 @@ class ApplyLeaveForm extends sfForm {
         $this->setDefault('txtEmpWorkShift', $workSchedule->getWorkShiftLength());
         $this->setDefault('leaveBalance', '--');
         
-        $specifyTimeDefault = array('time' => 
-            array('from' => $workScheduleStartEndTime['start_time'], 
-                  'to' => $workScheduleStartEndTime['end_time']));
+        // $specifyTimeDefault = array('time' => 
+        //     array('from' => $workScheduleStartEndTime['start_time'], 
+        //           'to' => $workScheduleStartEndTime['end_time']));
         
-        $this->setDefault('duration', $specifyTimeDefault);
-        $this->setDefault('firstDuration', $specifyTimeDefault);
-        $this->setDefault('secondDuration', $specifyTimeDefault);
+        // $this->setDefault('duration', $specifyTimeDefault);
+        // $this->setDefault('firstDuration', $specifyTimeDefault);
+        // $this->setDefault('secondDuration', $specifyTimeDefault);
 
         $this->getValidatorSchema()->setPostValidator(new sfValidatorCallback(array('callback' => array($this, 'postValidation'))));
 
@@ -557,10 +537,10 @@ class ApplyLeaveForm extends sfForm {
             'leaveBalance' => new ohrmWidgetDiv(),            
             'txtFromDate' => new ohrmWidgetDatePicker(array(), array('id' => 'applyleave_txtFromDate')),
             'txtToDate' => new ohrmWidgetDatePicker(array(), array('id' => 'applyleave_txtToDate')),
-            'duration' => new ohrmWidgetFormLeaveDuration(),
-            'partialDays' => new sfWidgetFormChoice(array('choices' => $partialDayChoices)),
-            'firstDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
-            'secondDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
+            // 'duration' => new ohrmWidgetFormLeaveDuration(),
+            // 'partialDays' => new sfWidgetFormChoice(array('choices' => $partialDayChoices)),
+            // 'firstDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
+            // 'secondDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
             'txtComment' => new sfWidgetFormTextarea(array(), array('rows' => '3', 'cols' => '30'))
         );
 
@@ -582,10 +562,10 @@ class ApplyLeaveForm extends sfForm {
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
             'txtToDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => true),
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
-            'duration' => new sfValidatorPass(),
-            'partialDays' => new sfValidatorPass(),
-            'firstDuration' => new sfValidatorPass(),
-            'secondDuration' => new sfValidatorPass(),               
+            // 'duration' => new sfValidatorPass(),
+            // 'partialDays' => new sfValidatorPass(),
+            // 'firstDuration' => new sfValidatorPass(),
+            // 'secondDuration' => new sfValidatorPass(),               
             'txtComment' => new sfValidatorString(array('required' => false, 'trim' => true, 'max_length' => 1000))
         );
 
@@ -604,10 +584,10 @@ class ApplyLeaveForm extends sfForm {
             'leaveBalance' => __('Leave Balance'),
             'txtFromDate' => __('From Date') . $requiredMarker,
             'txtToDate' => __('To Date') . $requiredMarker,
-            'duration' => __('Duration'),
-            'partialDays' => __('Partial Days'),
-            'firstDuration' => __('Duration'),
-            'secondDuration' => __('Duration'),            
+            // 'duration' => __('Duration'),
+            // 'partialDays' => __('Partial Days'),
+            // 'firstDuration' => __('Duration'),
+            // 'secondDuration' => __('Duration'),            
             'txtComment' => __('Comment'),
         );
         

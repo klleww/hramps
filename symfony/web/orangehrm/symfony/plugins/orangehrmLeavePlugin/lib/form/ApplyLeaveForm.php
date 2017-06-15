@@ -84,13 +84,13 @@ class ApplyLeaveForm extends sfForm {
         $this->setDefault('txtEmpWorkShift', $workSchedule->getWorkShiftLength());
         $this->setDefault('leaveBalance', '--');
         
-        $specifyTimeDefault = array('time' => 
-            array('from' => $workScheduleStartEndTime['start_time'], 
-                  'to' => $workScheduleStartEndTime['end_time']));
+        // $specifyTimeDefault = array('time' => 
+        //     array('from' => $workScheduleStartEndTime['start_time'], 
+        //           'to' => $workScheduleStartEndTime['end_time']));
         
-        $this->setDefault('duration', $specifyTimeDefault);
-        $this->setDefault('firstDuration', $specifyTimeDefault);
-        $this->setDefault('secondDuration', $specifyTimeDefault);
+        // $this->setDefault('duration', $specifyTimeDefault);
+        // $this->setDefault('firstDuration', $specifyTimeDefault);
+        // $this->setDefault('secondDuration', $specifyTimeDefault);
 
         $this->getValidatorSchema()->setPostValidator(new sfValidatorCallback(array('callback' => array($this, 'postValidation'))));
 
@@ -323,7 +323,7 @@ class ApplyLeaveForm extends sfForm {
             if ($posts['txtToDate'] == $posts['txtFromDate'])
                 $dayDeference = number_format($posts['txtLeaveTotalTime'] / $posts['txtEmpWorkShift'], 3);
             else
-            //$dayDeference	=	floor((strtotime($posts['txtToDate'])-strtotime($posts['txtFromDate']))/86400)+1;
+            //$dayDeference =   floor((strtotime($posts['txtToDate'])-strtotime($posts['txtFromDate']))/86400)+1;
                 $dayDeference = 1;
         }
 
@@ -537,10 +537,10 @@ class ApplyLeaveForm extends sfForm {
             'leaveBalance' => new ohrmWidgetDiv(),            
             'txtFromDate' => new ohrmWidgetDatePicker(array(), array('id' => 'applyleave_txtFromDate')),
             'txtToDate' => new ohrmWidgetDatePicker(array(), array('id' => 'applyleave_txtToDate')),
-            'duration' => new ohrmWidgetFormLeaveDuration(),
-            'partialDays' => new sfWidgetFormChoice(array('choices' => $partialDayChoices)),
-            'firstDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
-            'secondDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
+            // 'duration' => new ohrmWidgetFormLeaveDuration(),
+            // 'partialDays' => new sfWidgetFormChoice(array('choices' => $partialDayChoices)),
+            // 'firstDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
+            // 'secondDuration' => new ohrmWidgetFormLeaveDuration(array('enable_full_day' => false)),
             'txtComment' => new sfWidgetFormTextarea(array(), array('rows' => '3', 'cols' => '30'))
         );
 
@@ -562,10 +562,10 @@ class ApplyLeaveForm extends sfForm {
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
             'txtToDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => true),
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
-            'duration' => new sfValidatorPass(),
-            'partialDays' => new sfValidatorPass(),
-            'firstDuration' => new sfValidatorPass(),
-            'secondDuration' => new sfValidatorPass(),               
+            // 'duration' => new sfValidatorPass(),
+            // 'partialDays' => new sfValidatorPass(),
+            // 'firstDuration' => new sfValidatorPass(),
+            // 'secondDuration' => new sfValidatorPass(),               
             'txtComment' => new sfValidatorString(array('required' => false, 'trim' => true, 'max_length' => 1000))
         );
 
@@ -584,10 +584,10 @@ class ApplyLeaveForm extends sfForm {
             'leaveBalance' => __('Leave Balance'),
             'txtFromDate' => __('From Date') . $requiredMarker,
             'txtToDate' => __('To Date') . $requiredMarker,
-            'duration' => __('Duration'),
-            'partialDays' => __('Partial Days'),
-            'firstDuration' => __('Duration'),
-            'secondDuration' => __('Duration'),            
+            // 'duration' => __('Duration'),
+            // 'partialDays' => __('Partial Days'),
+            // 'firstDuration' => __('Duration'),
+            // 'secondDuration' => __('Duration'),            
             'txtComment' => __('Comment'),
         );
         

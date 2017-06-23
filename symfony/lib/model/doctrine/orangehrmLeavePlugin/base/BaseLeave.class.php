@@ -17,6 +17,7 @@
  * @property time $start_time
  * @property time $end_time
  * @property int $duration_type
+ * @property string $history
  * @property Doctrine_Collection $LeaveEntitlements
  * @property LeaveRequest $LeaveRequest
  * @property LeaveType $LeaveType
@@ -34,6 +35,7 @@
  * @method time                getStartTime()         Returns the current record's "start_time" value
  * @method time                getEndTime()           Returns the current record's "end_time" value
  * @method int                 getDurationType()      Returns the current record's "duration_type" value
+ * @method int                 getHistory()           Returns the current record's "history" value
  * @method Doctrine_Collection getLeaveEntitlements() Returns the current record's "LeaveEntitlements" collection
  * @method LeaveRequest        getLeaveRequest()      Returns the current record's "LeaveRequest" value
  * @method LeaveType           getLeaveType()         Returns the current record's "LeaveType" value
@@ -50,6 +52,7 @@
  * @method Leave               setStartTime()         Sets the current record's "start_time" value
  * @method Leave               setEndTime()           Sets the current record's "end_time" value
  * @method Leave               setDurationType()      Sets the current record's "duration_type" value
+ * @method Leave               setHistory()           Sets the current record's "history" value
  * @method Leave               setLeaveEntitlements() Sets the current record's "LeaveEntitlements" collection
  * @method Leave               setLeaveRequest()      Sets the current record's "LeaveRequest" value
  * @method Leave               setLeaveType()         Sets the current record's "LeaveType" value
@@ -167,6 +170,10 @@ abstract class BaseLeave extends sfDoctrineRecord
              ));
         $this->hasColumn('duration_type', 'int', null, array(
              'type' => 'int',
+             ));
+        $this->hasColumn('history', 'string', null, array(
+             'type' => 'string',
+             'notnull' => false,
              ));
     }
 

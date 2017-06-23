@@ -590,6 +590,17 @@ abstract class AbstractLeaveAllocationService extends BaseService {
         
         $firstDay = true;
 
+        $user = sfContext::getInstance()->getUser();
+        $loggedInUserId = $user->getAttribute('auth.userId');
+        $loggedInEmpNumber = $user->getAttribute('auth.empNumber');
+
+        if (!empty($loggedInEmpNumber)) {
+            $employee = $this->getEmployeeService()->getEmployee($loggedInEmpNumber);
+            $createdBy = $employee->getFullName();
+        } else {
+            $createdBy = $user->getAttribute('auth.firstName');
+        }
+
         for ($timeStamp = $from; $timeStamp <= $to; $timeStamp = $this->incDate($timeStamp)) {
             $leave = new Leave();
 
@@ -610,6 +621,7 @@ abstract class AbstractLeaveAllocationService extends BaseService {
             $this->updateLeaveDurationParameters($leave, $leaveAssignmentData->getEmployeeNumber(), $leaveDuration, 
                     $isWeekend, $isHoliday, $isHalfday, $isHalfDayHoliday);
             $leave->setStatus($this->getLeaveRequestStatus($isWeekend, $isHoliday, $leaveDate, $leaveAssignmentData));
+            $leave->setHistory($leave->getHistory() . " - " . "Action : " . __(ucwords(strtolower(Leave::getTextForLeaveStatus(Leave::LEAVE_STATUS_LEAVE_PENDING_APPROVAL)))) . " == Action taken by : " . $createdBy . " == Action taken on : " . date('Y-m-d H:m:i'));
 
             array_push($leaveList, $leave);
         }

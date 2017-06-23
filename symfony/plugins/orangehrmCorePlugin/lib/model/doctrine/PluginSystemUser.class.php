@@ -64,4 +64,14 @@ abstract class PluginSystemUser extends BaseSystemUser
            
     }
 
+       public function getNameLast(){
+        if( $this->getEmployee()->getEmpLastname() != ''){
+            return $this->getEmployee()->getEmpLastname();
+        }else{
+            return $this->getUserRole()->getNameLast();
+        }
+            
+           
+    }
+
 }

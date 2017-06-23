@@ -27,7 +27,7 @@ class LeaveEntitlementTypeCellFilter extends ohrmCellFilter {
     public function filter($value) {
         switch ($value) {
             case LeaveEntitlement::ENTITLEMENT_TYPE_ADD:
-                $value = __('Added');
+                $value = __('Added/Deducted');
         }
         
         return $value;

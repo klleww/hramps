@@ -243,7 +243,7 @@ class addLeaveEntitlementAction extends sfAction {
         
             $user = $this->getUser();
             $userId = $user->getAttribute('auth.userId');
-            $createdBy = $this->getUser()->getAttribute('auth.firstName');
+            $createdBy = $this->getUser()->getAttribute('auth.lastName');
             
             $leaveEntitlement->setCreditedDate(date('Y-m-d'));
             $leaveEntitlement->setCreatedById($userId);

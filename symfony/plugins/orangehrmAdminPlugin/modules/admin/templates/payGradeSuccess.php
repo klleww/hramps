@@ -88,8 +88,8 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
                     </li>
 
                      
-                   <!--  
-                    <li>
+                    
+                  <!--   <li>
                         <?php echo $currencyForm['minSalary']->renderLabel(__('Minimum Salary')); ?>
                         <?php echo $currencyForm['minSalary']->render(array("class" => "formInput", "maxlength" => 52)); ?>
                     </li>
@@ -97,11 +97,11 @@ use_javascript(plugin_web_path('orangehrmAdminPlugin', 'js/payGradeSuccess'));
                     <li>
                         <?php echo $currencyForm['maxSalary']->renderLabel(__('Maximum Salary')); ?>
                         <?php echo $currencyForm['maxSalary']->render(array("class" => "formInput", "maxlength" => 52)); ?>
-                    </li> -->
+                    </li>
                     
                     <li class="required">
                         <em>*</em> <?php echo __(CommonMessages::REQUIRED_FIELD); ?>
-                    </li>
+                    </li> -->
                     
                 </ol>    
                 

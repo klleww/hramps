@@ -29,13 +29,15 @@ $(document).ready(function() {
         var primarykey = row.find('input.checkboxMem:first').val();
         var membership = $(this).text();
         $('#nameContainer').text(membership);
+        var membershipno = row.find("td:nth-child(3)").text();
         var subscriptionPaidBy = row.find("td:nth-child(3)").text();
         var subscriptionAmount = row.find("td:nth-child(4)").text();
         var currency = row.find("td:nth-child(5)").text();
-        var subscriptionCommenceDate = row.find("td:nth-child(6)").text();
+        var subscriptionCommenceDate = row.find("td:nth-child(4)").text();
         var subscriptionRenewalDate = row.find("td:nth-child(7)").text();
         var memcode = primarykey.split(" ");
         $('#membership_membership').val(memcode[1]);
+        $('#membership_membershipno').val(membershipno);
         $('#membership_subscriptionPaidBy').val(subscriptionPaidBy);
         $('#membership_subscriptionAmount').val(subscriptionAmount);
         $('#membership_currency').val(currency);
@@ -178,6 +180,7 @@ $(document).ready(function() {
 function clearAddForm() {
 
     $('#membership_membership').val('');
+    $('#membership_membershipno').val('');
     $('#membership_subscriptionPaidBy').val('');
     $('#membership_subscriptionAmount').val('');
     $('#membership_currency').val('');

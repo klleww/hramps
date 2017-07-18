@@ -99,7 +99,7 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
                             <?php echo $form['DOB']->render(array("class"=>"editable")); ?>
                         </li>
                          <li>
-                            <label for="personal_cmbReligion"><?php echo __('Religion'); ?></label>
+                            <label for="personal_cmbReligion"><?php echo __('Religious Affiliation'); ?></label>
                             <?php echo $form['cmbReligion']->render(array("class"=>"editable")); ?>
                         </li>
                         <li>

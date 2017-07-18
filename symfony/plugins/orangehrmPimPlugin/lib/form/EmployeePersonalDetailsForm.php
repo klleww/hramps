@@ -127,7 +127,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
             // 'txtOtherID' => new sfWidgetFormInputText(),
             'txtBiometricId' => new sfWidgetFormInputText(),
             'cmbMarital' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Single' => __('Single'), 'Married' => __('Married'), 'Other' => __('Other')))),
-            'cmbReligion' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Roman Catholic' => __('Roman Catholic'), 'Islam' => __('Islam'), 'Other' => __('Other')))),
+            'cmbReligion' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Muslim' => __('Muslim'), 'Non-Muslim' => __('Non-Muslim')))),
             'cmbBloodType' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'A+' => __('A+'), 'A-' => __('A-'), 'B+' => __('B+'), 'B-' => __('B-'),
                                                                                      'O+' => __('O+'),'O-' => __('O-'),'AB+' => __('AB+'),'AB-' => __('AB-')))),
             'chkSmokeFlag' => new sfWidgetFormInputCheckbox(),

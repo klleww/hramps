@@ -72,6 +72,8 @@ $(document).ready(function() {
         $("#experience_from_date").val(displayDateFormat);
         $("#experience_to_date").val(displayDateFormat);
         $("#experience_comments").val("");
+        $("#experience_salary").val("");
+        $("#experience_govt").val("");
 
         //show add work experience form
         $("#changeWorkExperience").show();
@@ -137,6 +139,12 @@ $(document).ready(function() {
             'experience[comments]': {
                 maxlength: 200
             }
+            'experience[salary]': {
+                maxlength: 20
+            }
+            'experience[govt]': {
+                maxlength: 11
+            }
         },
         messages: {
             'experience[employer]': {
@@ -156,6 +164,12 @@ $(document).ready(function() {
             },
             'experience[comments]': {
                 maxlength: lang_commentLength
+            }
+            'experience[salary]': {
+                maxlength: lang_salaryLength
+            }
+            'experience[govt]': {
+                maxlength: lang_govtLength
             }
         }
     });
@@ -205,6 +219,8 @@ $(document).ready(function() {
         $("#experience_from_date").val($("#fromDate_" + seqno).val());
         $("#experience_to_date").val($("#toDate_" + seqno).val());
         $("#experience_comments").val($("#comment_" + seqno).val());
+        $("#experience_salary").val($("#salary_" + seqno).val());
+        $("#experience_govt").val($("#salary_" + seqno).val());
 
         if ($("#experience_from_date").val() == '') {
             $("#experience_from_date").val(displayDateFormat);

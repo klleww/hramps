@@ -239,6 +239,18 @@ class EmployeePersonalDetailsForm extends BaseForm {
         $validators = array('txtNICNo' => new sfValidatorString(array('required' => false)),
             'txtSINNo' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'First Name Length exceeded 30 characters')),
             'txtLicenNo' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'License No length exceeded 30 characters')),
+            'txtEmpFirstName' => new sfValidatorString(array('required' => true, 'max_length' => 30, 'trim' => true),
+                    array('required' => 'First Name Empty!', 'max_length' => 'First Name Length exceeded 30 characters')),
+            'txtEmpMiddleName' => new sfValidatorString(array('required' => false, 'max_length' => 30, 'trim' => true), array('max_length' => 'Middle Name Length exceeded 30 characters')),
+            'txtEmpLastName' => new sfValidatorString(array('required' => true, 'max_length' => 30, 'trim' => true),
+                    array('required' => 'Last Name Empty!', 'max_length' => 'Last Name Length exceeded 30 characters')),
+            'txtPsipopNo' => new sfValidatorString(array('required' => false)),
+            'txtPsipopClass' => new sfValidatorString(array('required' => false)),
+            'optGender' => new sfValidatorChoice(array('required' => false,
+                'choices' => array(Employee::GENDER_MALE, Employee::GENDER_FEMALE),
+                'multiple' => false)),
+            'cmbMarital' => new sfValidatorString(array('required' => false)),
+            'cmbReligion' => new sfValidatorString(array('required' => false)),
             'DOB' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('invalid' => "Date format should be" . $inputDatePattern)));
 
         return $validators;
@@ -289,12 +301,13 @@ class EmployeePersonalDetailsForm extends BaseForm {
             $employee->biometricId = $this->getValue('txtBiometricId');
             $employee->psipopNo = $this->getValue('txtPsipopNo');
             $employee->psipopClass = $this->getValue('txtPsipopClass');
+            $employee->emp_marital_status = $this->getValue('cmbMarital');
+            $employee->religion = $this->getValue('cmbReligion');
             $gender = $this->getValue('optGender');
             if (!empty($gender)) {
                 $employee->emp_gender = $gender;
             }
-            $employee->emp_marital_status = $this->getValue('cmbMarital');
-            $employee->religion = $this->getValue('cmbReligion');
+            
             $employee->ssn = $this->getValue('txtNICNo');
             $employee->sin = $this->getValue('txtSINNo');
             $employee->emp_birthday = $this->getValue('DOB');

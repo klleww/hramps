@@ -116,36 +116,35 @@ class EmployeePersonalDetailsForm extends BaseForm {
 
     private function getPersonalInfoWidgets() {
         $widgets = array(
-            // 'txtEmpLastName' => new sfWidgetFormInputText(),
-            // 'txtEmpFirstName' => new sfWidgetFormInputText(),
-            // 'txtEmpMiddleName' => new sfWidgetFormInputText(),
-            // 'txtEmpNickName' => new sfWidgetFormInputText(),
-            // 'txtPsipopNo' => new sfWidgetFormInputText(),
-            // 'txtPsipopClass' => new sfWidgetFormInputText(),
-            // 'optGender' => new sfWidgetFormChoice(array('expanded' => true, 'choices' => array(1 => __("Male"), 2 => __("Female")))),
+            'txtEmpLastName' => new sfWidgetFormInputText(),
+            'txtEmpFirstName' => new sfWidgetFormInputText(),
+            'txtEmpMiddleName' => new sfWidgetFormInputText(),
+            'txtEmpNickName' => new sfWidgetFormInputText(),
+            'txtPsipopNo' => new sfWidgetFormInputText(),
+            'txtPsipopClass' => new sfWidgetFormInputText(),
+            'optGender' => new sfWidgetFormChoice(array('expanded' => true, 'choices' => array(1 => __("Male"), 2 => __("Female")))),
             'cmbNation' => new sfWidgetFormSelect(array('choices' => $this->getNationalityList())),
-            // 'txtOtherID' => new sfWidgetFormInputText(),
-            // 'txtBiometricId' => new sfWidgetFormInputText(),
-            // 'cmbMarital' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Single' => __('Single'), 'Married' => __('Married'), 'Other' => __('Other')))),
-            'cmbReligion' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Muslim' => __('Muslim'), 'Non-Muslim' => __('Non-Muslim')))),
-            'cmbBloodType' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'A+' => __('A+'), 'A-' => __('A-'), 'B+' => __('B+'), 'B-' => __('B-'),
-                                                                                     'O+' => __('O+'),'O-' => __('O-'),'AB+' => __('AB+'),'AB-' => __('AB-')))),
+            'txtOtherID' => new sfWidgetFormInputText(),
+            'txtBiometricId' => new sfWidgetFormInputText(),
+            'cmbMarital' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Single' => __('Single'), 'Married' => __('Married'),   'Divorced' => __('Divorced'),'Widowed' => __('Widowed')))),
+            // 'cmbReligion' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Muslim' => __('Muslim'), 'Non-Muslim' => __('Non-Muslim')))),
+            'cmbBloodType' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'A+' => __('A+'), 'A-' => __('A-'), 'B+' => __('B+'), 'B-' => __('B-'), 'O+' => __('O+'),'O-' => __('O-'),'AB+' => __('AB+'),'AB-' => __('AB-')))),
             'chkSmokeFlag' => new sfWidgetFormInputCheckbox(),
             'txtLicExpDate' => new ohrmWidgetDatePicker(array(), array('id' => 'personal_txtLicExpDate')),
             'txtMilitarySer' => new sfWidgetFormInputText(),
         );
 
         //setting default values
-        // $widgets['txtEmpLastName']->setAttribute('value', $this->employee->lastName);
-        // $widgets['txtEmpFirstName']->setAttribute('value', $this->employee->firstName);
-        // $widgets['txtEmpMiddleName']->setAttribute('value', $this->employee->middleName);
-        // $widgets['txtEmpNickName']->setAttribute('value', $this->employee->nickName);
+        $widgets['txtEmpLastName']->setAttribute('value', $this->employee->lastName);
+        $widgets['txtEmpFirstName']->setAttribute('value', $this->employee->firstName);
+        $widgets['txtEmpMiddleName']->setAttribute('value', $this->employee->middleName);
+        $widgets['txtEmpNickName']->setAttribute('value', $this->employee->nickName);
 
         //setting the default selected nation code
         $widgets['cmbNation']->setDefault($this->employee->nation_code);
 
-        //setting default marital status,religion and bloodtype
-        // $widgets['cmbMarital']->setDefault($this->employee->emp_marital_status);
+        // setting default marital status,religion and bloodtype
+        $widgets['cmbMarital']->setDefault($this->employee->emp_marital_status);
         // $widgets['cmbReligion']->setDefault($this->employee->religion);
         $widgets['cmbBloodType']->setDefault($this->employee->bloodType);
 
@@ -156,11 +155,11 @@ class EmployeePersonalDetailsForm extends BaseForm {
         $widgets['chkSmokeFlag']->setAttribute('value', 1);
         $widgets['txtLicExpDate']->setAttribute('value', set_datepicker_date_format($this->employee->emp_dri_lice_exp_date));
         $widgets['txtMilitarySer']->setAttribute('value', $this->employee->militaryService);
-        // $widgets['optGender']->setDefault($this->gender);
-        // $widgets['txtOtherID']->setAttribute('value', $this->employee->otherId);
-        // $widgets['txtBiometricId']->setAttribute('value', $this->employee->biometricId);
-        // $widgets['txtPsipopNo']->setAttribute('value', $this->employee->psipopNo);
-        // $widgets['txtPsipopClass']->setAttribute('value', $this->employee->psipopClass);
+        $widgets['optGender']->setDefault($this->gender);
+        $widgets['txtOtherID']->setAttribute('value', $this->employee->otherId);
+        $widgets['txtBiometricId']->setAttribute('value', $this->employee->biometricId);
+        $widgets['txtPsipopNo']->setAttribute('value', $this->employee->psipopNo);
+        $widgets['txtPsipopClass']->setAttribute('value', $this->employee->psipopClass);
    
 
         return $widgets;
@@ -190,7 +189,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
             // 'txtLicExpDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('invalid' => "Date format should be $inputDatePattern")),
             'txtMilitarySer' => new sfValidatorString(array('required' => false)),
             'txtBiometricId' => new sfValidatorString(array('required' => false)),
-            'cmbReligion' => new sfValidatorString(array('required' => false)),
+            // 'cmbReligion' => new sfValidatorString(array('required' => false)),
             'cmbBloodType' => new sfValidatorString(array('required' => false)),
         );
 
@@ -208,9 +207,9 @@ class EmployeePersonalDetailsForm extends BaseForm {
             'txtBiometricId' => new sfWidgetFormInputText(),
             'txtPsipopNo' => new sfWidgetFormInputText(),
             'txtPsipopClass' => new sfWidgetFormInputText(),
-            'optGender' => new sfWidgetFormChoice(array('expanded' => true, 'choices' => array(1 => __("Male"), 2 => __("Female")))),
-            'cmbMarital' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Single' => __('Single'), 'Married' => __('Married'), 'Other' => __('Other')))),
-            'cmbReligion' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Roman Catholic' => __('Roman Catholic'), 'Islam' => __('Islam'), 'Other' => __('Other')))),
+            'optGender' => new sfWidgetFormInputText(),
+            'cmbMarital' => new sfWidgetFormInputText(),
+            'cmbReligion' => new sfWidgetFormInputText(),
             'DOB' => new ohrmWidgetDatePicker(array(), array('id' => 'personal_DOB')),
             'txtLicenNo' => new sfWidgetFormInputText());
 
@@ -273,20 +272,20 @@ class EmployeePersonalDetailsForm extends BaseForm {
             $nation = $this->getValue('cmbNation');
             $employee->nation_code = ($nation != '0') ? $nation : null;
             // $employee->otherId = $this->getValue('txtOtherID');
-            $employee->biometricId = $this->getValue('txtBiometricId');
-            $employee->psipopNo = $this->getValue('txtPsipopNo');
-            $employee->psipopClass = $this->getValue('txtPsipopClass');
+            // $employee->biometricId = $this->getValue('txtBiometricId');
+            // $employee->psipopNo = $this->getValue('txtPsipopNo');
+            // $employee->psipopClass = $this->getValue('txtPsipopClass');
 
-            $employee->emp_marital_status = $this->getValue('cmbMarital');
-            $employee->religion = $this->getValue('cmbReligion');
+            // $employee->emp_marital_status = $this->getValue('cmbMarital');
+            // $employee->religion = $this->getValue('cmbReligion');
             $employee->bloodType = $this->getValue('cmbBloodType');
             $smoker = $this->getValue('chkSmokeFlag');
             $employee->smoker = !empty($smoker) ? $smoker : 0;
 
-            $gender = $this->getValue('optGender');
-            if (!empty($gender)) {
-                $employee->emp_gender = $gender;
-            }
+            // $gender = $this->getValue('optGender');
+            // if (!empty($gender)) {
+            //     $employee->emp_gender = $gender;
+            // }
 
             $employee->emp_dri_lice_exp_date = $this->getValue('txtLicExpDate');
 
@@ -307,7 +306,11 @@ class EmployeePersonalDetailsForm extends BaseForm {
             if (!empty($gender)) {
                 $employee->emp_gender = $gender;
             }
-            
+            // $male = 'Male';
+            // if ($gender==1){
+            //     $employee->emp_gender = $male;
+            // }
+                        
             $employee->ssn = $this->getValue('txtNICNo');
             $employee->sin = $this->getValue('txtSINNo');
             $employee->emp_birthday = $this->getValue('DOB');

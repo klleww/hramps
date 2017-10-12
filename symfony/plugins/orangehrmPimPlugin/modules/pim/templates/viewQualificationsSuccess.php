@@ -60,6 +60,14 @@ $haveWorkExperience = count($workExperienceForm->workExperiences)>0;
                                 <?php echo $workExperienceForm['to_date']->renderLabel(__('To')); ?>
                                 <?php echo $workExperienceForm['to_date']->render(array("class" => "formInputText")); ?>
                             </li>
+                            <li>
+                                <?php echo $workExperienceForm['salary']->renderLabel(__('Salary')); ?>
+                                <?php echo $workExperienceForm['salary']->render(array("class" => "formInputText")); ?>
+                            </li>
+                            <li>
+                                <?php echo $form['govt']->renderLabel(__('Govt Service')); ?>
+                                <?php echo $form['govt']->render(); ?>
+                            </li>
                             <li class="largeTextBox">
                                 <?php echo $workExperienceForm['comments']->renderLabel(__('Comment')); ?>
                                 <?php echo $workExperienceForm['comments']->render(array("class" => "formInputText")); ?>
@@ -115,7 +123,9 @@ $haveWorkExperience = count($workExperienceForm->workExperiences)>0;
                                 <th><?php echo __('Job Title');?></th>
                                 <th><?php echo __('From');?></th>
                                 <th><?php echo __('To');?></th>
-                                <th><?php echo __('Comment');?></th>
+                                <th><?php echo __('Salary');?></th>
+                                <th><?php echo __('Govt Service');?></th>
+                                <!-- <th><?php echo __('Comment');?></th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -125,6 +135,7 @@ $haveWorkExperience = count($workExperienceForm->workExperiences)>0;
                                     <td class="check"></td>
                                     <?php } ?>
                                     <td><?php echo __(TopLevelMessages::NO_RECORDS_FOUND); ?></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -149,8 +160,12 @@ $haveWorkExperience = count($workExperienceForm->workExperiences)>0;
                                                    value="<?php echo $fromDate; ?>" />
                                             <input type="hidden" id="toDate_<?php echo $workExperience->seqno; ?>" 
                                                    value="<?php echo $toDate; ?>" />
-                                            <input type="hidden" id="comment_<?php echo $workExperience->seqno; ?>" 
-                                                   value="<?php echo htmlspecialchars($workExperience->comments); ?>" />
+                                            <input type="hidden" id="salary_<?php echo $workExperience->seqno; ?>" 
+                                                   value="<?php echo $salary; ?>" />
+                                            <input type="hidden" id="govt_<?php echo $workExperience->seqno; ?>" 
+                                                   value="<?php echo $govt; ?>" />
+                                           <!--  <input type="hidden" id="comment_<?php echo $workExperience->seqno; ?>" 
+                                                   value="<?php echo htmlspecialchars($workExperience->comments); ?>" /> -->
                                             <?php if ($workExperiencePermissions->canDelete()) {?>
                                             <input type="checkbox" class="chkbox1" value="<?php echo $workExperience->seqno;?>" 
                                                    name="delWorkExp[]"/>
@@ -170,7 +185,9 @@ $haveWorkExperience = count($workExperienceForm->workExperiences)>0;
                                         <td><?php echo htmlspecialchars($workExperience->jobtitle);?></td>
                                         <td><?php echo $fromDate;?></td>
                                         <td><?php echo $toDate;?></td>
-                                        <td class="comments"><?php echo htmlspecialchars($workExperience->comments);?></td>
+                                        <td><?php echo $salary;?></td>
+                                        <td><?php echo $govt;?></td>
+                                       <!--  <td class="comments"><?php echo htmlspecialchars($workExperience->comments);?></td> -->
                                     </tr>
                                     <?php $row++;
                                 endforeach;

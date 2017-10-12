@@ -78,6 +78,14 @@ abstract class BaseEmpWorkExperience extends sfDoctrineRecord
              'type' => 'integer',
              'length' => 4,
              ));
+        $this->hasColumn('eexp_salary as salary', 'string', 20, array(
+             'type' => 'string',
+             'length' => 20,
+             ));
+        $this->hasColumn('eexp_govt_service as govt', 'integer', 11, array(
+             'type' => 'integer',
+             'length' => 11,
+             ));
     }
 
     public function setUp()

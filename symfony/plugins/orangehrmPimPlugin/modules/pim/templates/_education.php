@@ -29,11 +29,11 @@ $haveEducation = count($form->empEducationList) > 0;
                         <?php echo $form['major']->render(array("class" => "formInputText", "maxlength" => 100)); ?>
                     </li>
                     <li>
-                        <?php echo $form['year']->renderLabel(__('Year')); ?>
+                        <?php echo $form['year']->renderLabel(__('Year Graduated')); ?>
                         <?php echo $form['year']->render(array("class" => "formInputText", "maxlength" => 4)); ?>
                     </li>
                     <li>
-                        <?php echo $form['gpa']->renderLabel(__('GPA/Score')); ?>
+                        <?php echo $form['gpa']->renderLabel(__('Units Earned')); ?>
                         <?php echo $form['gpa']->render(array("class" => "formInputText", "maxlength" => 25)); ?>
                     </li>
                     <li>
@@ -89,8 +89,10 @@ $haveEducation = count($form->empEducationList) > 0;
                             <th class="check" width="2%"><input type="checkbox" id="educationCheckAll" /></th>
                             <?php } ?>
                             <th><?php echo __('Level'); ?></th>
+                            <th><?php echo __('Institute'); ?></th>
+                            <th><?php echo __('Major/Specialization'); ?></th>
                             <th><?php echo __('Year'); ?></th>
-                            <th><?php echo __('GPA/Score'); ?></th>
+                            <th><?php echo __('Units Earned'); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -100,6 +102,7 @@ $haveEducation = count($form->empEducationList) > 0;
                             <td class="check"></td>
                             <?php } ?>
                             <td><?php echo __(TopLevelMessages::NO_RECORDS_FOUND); ?></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                         </tr>
@@ -146,6 +149,8 @@ $haveEducation = count($form->empEducationList) > 0;
                                         echo $eduDesc;
                                     } ?>
                                 </td>
+                                <td><?php echo htmlspecialchars($education->institute); ?></td>
+                                <td><?php echo htmlspecialchars($education->major); ?></td>
                                 <td><?php echo htmlspecialchars($education->year); ?></td>
                                 <td><?php echo htmlspecialchars($education->score); ?></td>
                             </tr>

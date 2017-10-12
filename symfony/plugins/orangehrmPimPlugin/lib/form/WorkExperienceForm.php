@@ -89,6 +89,8 @@ class WorkExperienceForm extends sfForm {
         $widgets['from_date'] = new ohrmWidgetDatePicker(array(), array('id' => 'experience_from_date'));
         $widgets['to_date'] = new ohrmWidgetDatePicker(array(), array('id' => 'experience_to_date'));
         $widgets['comments'] = new sfWidgetFormTextarea();
+        $widgets['salary'] = new sfWidgetFormInputText();
+        $widgets['govt'] = new sfWidgetFormInputCheckbox(array(), array('value' => 'on'));
 
         return $widgets;
     }
@@ -108,6 +110,8 @@ class WorkExperienceForm extends sfForm {
             'from_date' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('required' => 'Date field is required', 'invalid' => 'Date format should be ' . $inputDatePattern)),
             'to_date' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('required' => 'Date field is required', 'invalid' => 'Date format should be ' . $inputDatePattern)),
             'comments' => new sfValidatorString(array('required' => false, 'max_length' => 200)),
+            'salary' => new sfValidatorString(array('required' => false, 'max_length' => 200)),
+            'govt' => new sfValidatorString(array('required' => false)),
         );
 
         return $validators;

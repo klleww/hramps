@@ -16,6 +16,12 @@ class LeaveRequestService extends BaseService {
     const LEAVE_CHANGE_TYPE_LEAVE = 'change_leave';
     const LEAVE_CHANGE_TYPE_LEAVE_REQUEST = 'change_leave_request';
 
+    protected function getEmployeeService() 
+    {
+        return new EmployeeService;
+    }
+
+
     /**
      *
      * @return LeaveRequestDao
